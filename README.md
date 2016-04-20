@@ -1,3 +1,5 @@
+http://docs.tapresearch.com/?ruby#getting-started
+
 Slate
 ========
 
