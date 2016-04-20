@@ -13,17 +13,15 @@ search: true
 
 # Introduction
 
-Welcome to the Theorem Reach API documentation! Our API enables you to create and modify research projects on our platform, start/stop the flow of sample, and reconcile completes.
+Welcome to the TheoremReach API documentation! Our API enables you to create and modify research projects on our platform, calculate feasibility, start/stop the flow of sample, and reconcile completes.
 
 # Getting Started
 
-Before you can begin consuming our API, you will need to contact support@theoremreach.com for an API token. This token will be used for authentication purposes described in the section below.
+Before you can begin creating survey sample requests using our API, you will need to contact admin@theoremreach.com for an API token. This token will be used for authentication purposes described in the section below.
 
 The first API token that we send you will only grant you access to our staging server, http://api-staging.theoremreach.com. Please use this as your base URL until you are ready to go live.
 
-When you are read to go live, please contact us for a live api token.
-
-Also use this end point instead https://api.theoremreach.com
+When you are ready to go live, please contact us for a live api token. Update your routes to point to https://api.theoremreach.com. Please note the use of SSL/HTTPS for production.
 
 # Authentication
 
@@ -40,11 +38,9 @@ You must replace <code>testkey</code> with your personal API key.  access_token 
 
 # Integration Guide
 
-## Load and Map Data
+## Mapping
 
-You will need to load and map all of the available data in order to properly talk to the API.  
-
-## Set Up and Monitor a Campaign
+The first step of integration is to load and map our data to your system. This will ensure your system is able to properly communicate with our API.  
 
 # Countries
 
@@ -68,7 +64,7 @@ https://api.theoremreach.com/api/v1/countries
 ```
 
 
-This end point allows you to retrieve all country and language combinations supported by Theorem Reach.  Only actively support countries will be returned.  The ID must be used when creating campaigns and checking feasibility.
+This end point allows you to retrieve all active country and language combinations supported by TheoremReach.  Only actively support countries will be returned.  The ID must be used when creating campaigns and checking feasibility.
 
 **HTTP REQUEST**
 
@@ -119,11 +115,11 @@ Trait questions allow you to check feasibility and build quotas around a respond
 
 ### INDEX - List Available Trait Questions
 
-This end point allows you to retrieve all trait questions within a given country.
+This end point allows you to retrieve all active trait questions within a given country.
 
 **HTTP REQUEST**
 
-`GET http://api.theoremreach.com/api/v1/countries/9/trait_questions`
+`GET http://api.theoremreach.com/api/v1/countries/:country_id/trait_questions`
 
 
 **REQUIRED PARAMETERS**
@@ -136,10 +132,10 @@ This end point allows you to retrieve all trait questions within a given country
 Parameter | Type | Description
 --------- | ---- | -----------
 id | integer | Unique identifier used when making additional feasibility and campaign creation calls
-question_text | string | The question
-question_type | string | What kind of question is this?
+question_text | string | The text of the question that the user will see
+question_type | string | The type of question (single, multiple, numeric, etc.)
 trait_question_type | string | Short description of the question
-country_id | integer | The question
+country_id | integer | The id of the country the trait question belongs to
 
 
 
@@ -214,7 +210,7 @@ https://api.theoremreach.com/api/v1/campaigns
     "incidence":90,
     "country_id":9,
     "survey_url":"http://clientsurvey.com/survey/12345?id={USER_ID}",
-    "test_survey_url":"",
+    "test_survey_url":"http://clientsurvey.com/survey/12345?id={USER_ID}&test=1",
     "cpi":"3.0"
   }
 ]
@@ -235,17 +231,17 @@ This end point allows you to retrieve all the campaigns that you've created rega
 
 Parameter | Type | Description
 --------- | ---- | -----------
-id | integer | Unique identifier used when making additional feasibility and campaign creation calls
+id | integer | Unique identifier used when making additional feasibility and campaign update calls
 title | string | Name of the country/language combination
 start_date | date | When should the survey start
 end_date | date | When should the survey end
 status | string | 'Completed', 'In Progress', 'Paused', 'Draft' (Draft is default and cannot be set)
 loi | integer | Length of interview (minutes)
-incidence | decimal | The percentage chance that a random respondent will qualify and complete the survey
-country_id | integer | Country of the campaign
-survey_url | string | Production url for campaign
-test_survey_url | string | Test url for campaign
-cpi | decimal | Amount you will pay per complete
+incidence | integer | The percentage chance that a random respondent will qualify and complete the survey. Must be a number between 1 and 100
+country_id | integer | Country id of the campaign. Must be an active country id.
+survey_url | string | Production url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+test_survey_url | string | Test url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 per complete and increments up in $0.50 increments
 
 
 ## Show - Show One of Your Campaigns
@@ -277,11 +273,11 @@ https://api.theoremreach.com/api/v1/campaigns/1
 ```
 
 
-This end point allows you to retrieve all the campaigns that you've created regardless of their status.
+This end point allows you to retrieve information about a specific campaign that you've created.
 
 **HTTP REQUEST**
 
-`GET https://api.theoremreach.com/api/v1/campaigns/1`
+`GET https://api.theoremreach.com/api/v1/campaigns/:id`
 
 **REQUIRED PARAMETERS**
 
@@ -297,11 +293,11 @@ start_date | date | When should the survey start
 end_date | date | When should the survey end
 status | string | 'Completed', 'In Progress', 'Paused', 'Draft' (Draft is default and cannot be set)
 loi | integer | Length of interview (minutes)
-incidence | decimal | The percentage chance that a random respondent will qualify and complete the survey
-country_id | integer | Country of the campaign
-survey_url | string | Production url for campaign
-test_survey_url | string | Test url for campaign
-cpi | decimal | Amount you will pay per complete
+incidence | integer | The percentage chance that a random respondent will qualify and complete the survey. Must be a number between 1 and 100
+country_id | integer | Country id of the campaign
+survey_url | string | Production url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+test_survey_url | string | Test url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 per complete and increments up in $0.50 increments
 
 
 
@@ -311,7 +307,7 @@ cpi | decimal | Amount you will pay per complete
 ```shell
 curl -H "Content-Type: application/json" --data 
 "{\"access_token\":\"b5b9c26d7c9de4f60bd191a697c3cc5f\",
-\"campaign\":{\"title\":\"Fish\",\"cpi\":5,\"loi\":10,
+\"campaign\":{\"title\":\"Fish\",\"cpi\":5.0,\"loi\":10,
 \"incidence\":100,\"survey_url\":\"http://\",
 \"start_date\":\"2016-04-17T11:22:34.961-05:00\",
 \"end_date\":\"2016-04-19T11:22:34.961-05:00\",
@@ -354,16 +350,16 @@ title | string | Name of the country/language combination
 start_date | date | When should the survey start
 end_date | date | When should the survey end
 loi | integer | Length of interview (minutes)
-incidence | decimal | The percentage chance that a random respondent will qualify and complete the survey
-country_id | integer | Country of the campaign
-survey_url | string | Production url for campaign
-cpi | decimal | Amount you will pay per complete
+incidence | integer | The percentage chance that a random respondent will qualify and complete the survey. Must be a number between 1 and 100
+country_id | integer | Country id of the campaign
+survey_url | string | Production url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 per complete and increments up in $0.50 increments
 
 **OPTIONAL PARAMETERS**
 
 Parameter | Type | Description
 --------- | ---- | -----------
-test_survey_url | string | Test url for campaign
+test_survey_url | string | Test url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
 
 **RESPONSE**
 
@@ -377,9 +373,9 @@ status | string | 'Completed', 'In Progress', 'Paused', 'Draft' (Draft is defaul
 loi | integer | Length of interview (minutes)
 incidence | decimal | The percentage chance that a random respondent will qualify and complete the survey
 country_id | integer | Country of the campaign
-survey_url | string | Production url for campaign
-test_survey_url | string | Test url for campaign
-cpi | decimal | Amount you will pay per complete
+survey_url | string | Production url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+test_survey_url | string | Test url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 per complete and increments up in $0.50 increments
 
 
 ## Update - Update an Existing Campaign
@@ -387,7 +383,7 @@ cpi | decimal | Amount you will pay per complete
 ```shell
 curl -H "Content-Type: application/json" --data 
 "{\"access_token\":\"b5b9c26d7c9de4f60bd191a697c3cc5f\",
-\"campaign\":{\"title\":\"New Fun Campaign\",\"cpi\":5,\"loi\":10,
+\"campaign\":{\"title\":\"New Fun Campaign\",\"cpi\":5.0,\"loi\":10,
 \"incidence\":100,\"survey_url\":\"http://\",
 \"start_date\":\"2016-04-17T11:22:34.961-05:00\",
 \"end_date\":\"2016-06-19T11:22:34.961-05:00\",
@@ -436,9 +432,9 @@ status | string | 'Completed', 'In Progress', 'Paused', 'Draft' (Draft is defaul
 loi | integer | Length of interview (minutes)
 incidence | decimal | The percentage chance that a random respondent will qualify and complete the survey
 country_id | integer | Country of the campaign
-survey_url | string | Production url for campaign
-test_survey_url | string | Test url for campaign
-cpi | decimal | Amount you will pay per complete
+survey_url | string | Production url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+test_survey_url | string | Test url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 per complete and increments up in $0.50 increments
 
 
 **RESPONSE**
@@ -453,9 +449,9 @@ status | string | 'Completed', 'In Progress', 'Paused', 'Draft' (Draft is defaul
 loi | integer | Length of interview (minutes)
 incidence | decimal | The percentage chance that a random respondent will qualify and complete the survey
 country_id | integer | Country of the campaign
-survey_url | string | Production url for campaign
-test_survey_url | string | Test url for campaign
-cpi | decimal | Amount you will pay per complete
+survey_url | string | Production url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+test_survey_url | string | Test url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
+cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 per complete and increments up in $0.50 increments
 
 
 
@@ -464,14 +460,16 @@ cpi | decimal | Amount you will pay per complete
 
 Quotas are the access control for your campaigns.  Think of them as both the gate keeper and also the ticket counter when entering a concert.  
 
-Theorem Reach has simplified the quota process making it easier to understand and construct.  Essentially you build all your requirements of a quota into a single quota and then set the total_completes you desire.  We do not allow overlapping and convoluted quota mechanisms.  
+TheoremReach has simplified the quota process making it easier to understand and construct.  Essentially you build all your requirements of a quota into a single quota and then set the total_completes you desire.  Quotas are always cumulative.
 
 `Example:`
 
-* 25 - Males Age 18-24
-* 25 - Females Age 18-24
+* 250 - Males Age 18-24
+* 250 - Females Age 18-24
 
-In Theorem Reach you would create that with just two quotas adding the appropriate trait questions and trait ids for those requirements.  Once the quota has been filled.  It will be deactivated and no longer allow respondents to even see it as available.  You also do not need to update the campaign with a total quota amount.
+In TheoremReach you would create the above scenario with just two quotas adding the appropriate trait questions and trait ids for those requirements.  Once the quota has been filled.  It will be deactivated and no longer allow respondents to even see it as available.  You also do not need to update the campaign with a total quota amount.
+
+In the above example, you will receive 500 respondents for the survey. 250 Males aged 18-24 and 250 Females aged 18-24.
 
 
 ## Index - All Quotas
@@ -482,9 +480,10 @@ curl -i -H "Accept: application/json"
 https://api.theoremreach.com/api/v1/campaigns/1/quotas
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns JSON structured like this for a quota of males aged 18-24:
 
 ```json
+
 [
   {
     "id":1,
@@ -495,7 +494,8 @@ https://api.theoremreach.com/api/v1/campaigns/1/quotas
     "state":"active",
     "trait_questions":
       {
-        "1":[18,19,20,21,22,23,24]
+        "1":[18,19,20,21,22,23,24], 
+        "6":[42198] 
       }
   }
 ]
@@ -506,7 +506,7 @@ This end point will allow you to fetch all of the quotas for a campaign.
 
 **HTTP REQUEST**
 
-`GET https://api.theoremreach.com/api/v1/campaigns/1/quotas`
+`GET https://api.theoremreach.com/api/v1/campaigns/:campaign_id/quotas`
 
 **REQUIRED PARAMETERS**
 
@@ -556,7 +556,7 @@ Fetch the details about a quota
 
 **HTTP REQUEST**
 
-`GET https://api.theoremreach.com/api/v1/quotas/1`
+`GET https://api.theoremreach.com/api/v1/quotas/:id`
 
 **REQUIRED PARAMETERS**
 
@@ -584,7 +584,7 @@ curl -H "Content-Type: application/json" --data
 https://api.theoremreach.com/api/v1/campaigns/1/quotas
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns JSON structured like this to receive 100 respondents aged 18-24:
 
 ```json
 [
@@ -608,7 +608,7 @@ Create a new quota for a campaign
 
 **HTTP REQUEST**
 
-`POST https://api.theoremreach.com/api/v1/campaigns/1/quotas`
+`POST https://api.theoremreach.com/api/v1/campaigns/:campaign_id/quotas`
 
 **REQUIRED PARAMETERS**
 
@@ -667,7 +667,7 @@ Update a quota for a campaign
 
 **HTTP REQUEST**
 
-`PUT https://api.theoremreach.com/api/v1/quotas/1`
+`PUT https://api.theoremreach.com/api/v1/quotas/:id`
 
 **REQUIRED PARAMETERS**
 
