@@ -185,6 +185,53 @@ Parameter | Type | Description
 id | integer | Unique identifier used when making additional feasibility and campaign creation calls
 value_text | string | The answer to the question
 
+# Feasibility
+
+### POST - Feasibility For Trait Questions
+
+```shell
+curl -H "Content-Type: application/json" --data 
+"{\"access_token\":\"testkey\",
+\"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]},
+\"country_id\":9,\"price\":5,\"loi\":10,\"incidence\":100}}" 
+https://api.theoremreach.com/api/v1/feasibility
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "trait_questions":{"1":[18,10,20,21,22,23,24]},
+    "completes_per_day":1220
+  }
+]
+```
+
+
+This end point allows you to check the number of completes per day you should receive with a given set of trait questions.
+
+**HTTP REQUEST**
+
+`POST https://api.theoremreach.com/api/v1/feasibility`
+
+**REQUIRED PARAMETERS**
+
+Parameter | Type | Description
+--------- | ---- | -----------
+trait_questions | hash | Trait Question Hash
+country_id | integer | Country id of the campaign. Must be an active country id.
+cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 per complete and increments up in $0.50 increments
+incidence | integer | The percentage chance that a random respondent will qualify and complete the survey. Must be a number between 1 and 100
+loi | integer | Length of interview (minutes), min 1 max 30
+
+**RESPONSE**
+
+Parameter | Type | Description
+--------- | ---- | -----------
+trait_questions | hash | Trait Question Hash
+completes_per_day | integer | Number of completes you can expect per day
+
 
 # Campaigns
 
@@ -306,7 +353,7 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 
 ```shell
 curl -H "Content-Type: application/json" --data 
-"{\"access_token\":\"b5b9c26d7c9de4f60bd191a697c3cc5f\",
+"{\"access_token\":\"testkey\",
 \"campaign\":{\"title\":\"Fish\",\"cpi\":5.0,\"loi\":10,
 \"incidence\":100,\"survey_url\":\"http://\",
 \"start_date\":\"2016-04-17T11:22:34.961-05:00\",
@@ -382,7 +429,7 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 
 ```shell
 curl -H "Content-Type: application/json" --data 
-"{\"access_token\":\"b5b9c26d7c9de4f60bd191a697c3cc5f\",
+"{\"access_token\":\"testkey\",
 \"campaign\":{\"title\":\"New Fun Campaign\",\"cpi\":5.0,\"loi\":10,
 \"incidence\":100,\"survey_url\":\"http://\",
 \"start_date\":\"2016-04-17T11:22:34.961-05:00\",
@@ -494,8 +541,7 @@ https://api.theoremreach.com/api/v1/campaigns/1/quotas
     "state":"active",
     "trait_questions":
       {
-        "1":[18,19,20,21,22,23,24], 
-        "6":[42198] 
+        "1":[18,19,20,21,22,23,24]
       }
   }
 ]
@@ -578,7 +624,7 @@ trait_questions | hash | Subset hash of trait questions and array of trait ids (
 
 ```shell
 curl -H "Content-Type: application/json" --data 
-"{\"access_token\":\"b5b9c26d7c9de4f60bd191a697c3cc5f\",
+"{\"access_token\":\"testkey\",
 \"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100,
 \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}"  
 https://api.theoremreach.com/api/v1/campaigns/1/quotas
@@ -637,7 +683,7 @@ trait_questions | hash | Subset hash of trait questions and array of trait ids (
 
 ```shell
 curl -H "Content-Type: application/json" -X PUT 
---data "{\"access_token\":\"b5b9c26d7c9de4f60bd191a697c3cc5f\",
+--data "{\"access_token\":\"testkey\",
 \"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100,
 \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}"
 https://api.theoremreach.com/api/v1/quotas/1
