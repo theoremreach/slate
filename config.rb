@@ -37,8 +37,3 @@ configure :build do
   # activate :gzip
 end
 
-activate :deploy do |deploy|
-  deploy.deploy_method = :git
-  deploy.remote   = 'origin' # remote name or git url, default: origin
-  deploy.branch   = 'master' # default: gh-pages
-end
