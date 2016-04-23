@@ -50,7 +50,7 @@ The first step of integration is to load and map our data to your system. This w
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/countries
+https://api.theoremreach.com/api/v1/countries?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -69,7 +69,7 @@ This end point allows you to retrieve all active country and language combinatio
 
 **HTTP REQUEST**
 
-`GET https://api.theoremreach.com/api/v1/countries`
+`GET https://api.theoremreach.com/api/v1/countries?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
@@ -88,7 +88,7 @@ name | string | Name of the country/language combination
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-http://api.theoremreach.com/api/v1/countries/9/trait_questions
+http://api.theoremreach.com/api/v1/countries/9/trait_questions?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -120,7 +120,7 @@ This end point allows you to retrieve all active trait questions within a given 
 
 **HTTP REQUEST**
 
-`GET http://api.theoremreach.com/api/v1/countries/:country_id/trait_questions`
+`GET http://api.theoremreach.com/api/v1/countries/:country_id/trait_questions?access_token=testkey`
 
 
 **REQUIRED PARAMETERS**
@@ -147,7 +147,7 @@ country_id | integer | The id of the country the trait question belongs to
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-http://api.theoremreach.com/api/v1/trait_questions/1/traits
+http://api.theoremreach.com/api/v1/trait_questions/1/traits?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -171,7 +171,7 @@ This end point allows you to retrieve all trait questions within a given country
 
 **HTTP REQUEST**
 
-`GET http://api.theoremreach.com/api/v1/trait_questions/1/traits`
+`GET http://api.theoremreach.com/api/v1/trait_questions/1/traits?access_token=testkey`
 
 
 **REQUIRED PARAMETERS**
@@ -195,7 +195,7 @@ curl -H "Content-Type: application/json" --data
 "{\"access_token\":\"testkey\",
 \"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]},
 \"country_id\":9,\"price\":5,\"loi\":10,\"incidence\":100}}" 
-https://api.theoremreach.com/api/v1/feasibility
+https://api.theoremreach.com/api/v1/feasibility?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -214,7 +214,7 @@ This end point allows you to check the number of completes per day you should re
 
 **HTTP REQUEST**
 
-`POST https://api.theoremreach.com/api/v1/feasibility`
+`POST https://api.theoremreach.com/api/v1/feasibility?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
@@ -241,7 +241,7 @@ completes_per_day | integer | Number of completes you can expect per day
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/campaigns
+https://api.theoremreach.com/api/v1/campaigns?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -269,7 +269,7 @@ This end point allows you to retrieve all the campaigns that you've created rega
 
 **HTTP REQUEST**
 
-`GET https://api.theoremreach.com/api/v1/campaigns`
+`GET https://api.theoremreach.com/api/v1/campaigns?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
@@ -297,7 +297,7 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/campaigns/1
+https://api.theoremreach.com/api/v1/campaigns/1?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -325,7 +325,7 @@ This end point allows you to retrieve information about a specific campaign that
 
 **HTTP REQUEST**
 
-`GET https://api.theoremreach.com/api/v1/campaigns/:id`
+`GET https://api.theoremreach.com/api/v1/campaigns/:id?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
@@ -360,7 +360,7 @@ curl -H "Content-Type: application/json" --data
 \"start_date\":\"2016-04-17T11:22:34.961-05:00\",
 \"end_date\":\"2016-04-19T11:22:34.961-05:00\",
 \"country_id\":9}}" 
-https://api.theoremreach.com/api/v1/campaigns
+https://api.theoremreach.com/api/v1/campaigns?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -388,7 +388,7 @@ This end point allows you to create a new campaign.  It will default to a status
 
 **HTTP REQUEST**
 
-`POST https://api.theoremreach.com/api/v1/campaigns`
+`POST https://api.theoremreach.com/api/v1/campaigns?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
@@ -435,7 +435,7 @@ curl -H "Content-Type: application/json" --data
 \"incidence\":100,\"survey_url\":\"http://\",
 \"start_date\":\"2016-04-17T11:22:34.961-05:00\",
 \"end_date\":\"2016-06-19T11:22:34.961-05:00\",
-\"cosuntapi.theoremreach.comttp://localhost:3000/api/v1/campaigns
+\"cosuntapi.theoremreach.comttp://localhost:3000/api/v1/campaigns?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -463,7 +463,7 @@ This end point allows you to update an existing campaign.
 
 **HTTP REQUEST**
 
-`PUT https://api.theoremreach.com/api/v1/campaigns/1`
+`PUT https://api.theoremreach.com/api/v1/campaigns/1?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
@@ -525,7 +525,7 @@ In the above example, you will receive 500 respondents for the survey. 250 Males
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/campaigns/1/quotas
+https://api.theoremreach.com/api/v1/campaigns/1/quotas?access_token=testkey
 ```
 
 > The above command returns JSON structured like this for a quota of males aged 18-24:
@@ -553,7 +553,7 @@ This end point will allow you to fetch all of the quotas for a campaign.
 
 **HTTP REQUEST**
 
-`GET https://api.theoremreach.com/api/v1/campaigns/:campaign_id/quotas`
+`GET https://api.theoremreach.com/api/v1/campaigns/:campaign_id/quotas?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
@@ -576,7 +576,7 @@ trait_questions | hash | Subset hash of trait questions and array of trait ids (
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/quotas/1
+https://api.theoremreach.com/api/v1/quotas/1?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -603,7 +603,7 @@ Fetch the details about a quota
 
 **HTTP REQUEST**
 
-`GET https://api.theoremreach.com/api/v1/quotas/:id`
+`GET https://api.theoremreach.com/api/v1/quotas/:id?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
@@ -628,7 +628,7 @@ curl -H "Content-Type: application/json" --data
 "{\"access_token\":\"testkey\",
 \"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100,
 \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}"  
-https://api.theoremreach.com/api/v1/campaigns/1/quotas
+https://api.theoremreach.com/api/v1/campaigns/1/quotas?access_token=testkey
 ```
 
 > The above command returns JSON structured like this to receive 100 respondents aged 18-24:
@@ -655,7 +655,7 @@ Create a new quota for a campaign
 
 **HTTP REQUEST**
 
-`POST https://api.theoremreach.com/api/v1/campaigns/:campaign_id/quotas`
+`POST https://api.theoremreach.com/api/v1/campaigns/:campaign_id/quotas?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
@@ -687,7 +687,7 @@ curl -H "Content-Type: application/json" -X PUT
 --data "{\"access_token\":\"testkey\",
 \"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100,
 \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}"
-https://api.theoremreach.com/api/v1/quotas/1
+https://api.theoremreach.com/api/v1/quotas/1?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -714,7 +714,7 @@ Update a quota for a campaign
 
 **HTTP REQUEST**
 
-`PUT https://api.theoremreach.com/api/v1/quotas/:id`
+`PUT https://api.theoremreach.com/api/v1/quotas/:id?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
