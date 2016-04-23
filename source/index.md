@@ -86,8 +86,8 @@ name | string | Name of the country/language combination
 # Trait Questions
 
 ```shell
-curl -i -H "Accept: application/json" 
--H "Content-Type: application/json" -X GET 
+curl -i -H "Accept: application/json" \
+-H "Content-Type: application/json" -X GET \
 https://api-staging.theoremreach.com/api/v1/countries/9/trait_questions?access_token=testkey
 ```
 
@@ -145,8 +145,8 @@ country_id | integer | The id of the country the trait question belongs to
 
 
 ```shell
-curl -i -H "Accept: application/json" 
--H "Content-Type: application/json" -X GET 
+curl -i -H "Accept: application/json" \
+-H "Content-Type: application/json" -X GET \
 https://api-staging.theoremreach.com/api/v1/trait_questions/1/traits?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
