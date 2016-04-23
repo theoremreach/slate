@@ -210,7 +210,7 @@ This end point allows you to check the number of completes per day you should re
 
 Parameter | Type | Description
 --------- | ---- | -----------
-trait_questions | hash | Trait Question Hash
+trait_questions | hash | Subset hash of trait questions and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 country_id | integer | Country id of the campaign. Must be an active country id.
 cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 per complete and increments up in $0.50 increments
 incidence | integer | The percentage chance that a random respondent will qualify and complete the survey. Must be a number between 1 and 100
@@ -220,7 +220,7 @@ loi | integer | Length of interview (minutes), min 1 max 30
 
 Parameter | Type | Description
 --------- | ---- | -----------
-trait_questions | hash | Trait Question Hash
+trait_questions | hash | Subset hash of trait questions and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 completes_per_day | integer | Number of completes you can expect per day
 
 
@@ -561,7 +561,7 @@ remaining_completes | integer | How many completes are yet to be delivered
 total_completes | integer | Total number of completes you wish for this quota
 total_incompletes | integer | Total number of respondents have attempted and failed this quota
 state | string | active or inactive
-trait_questions | hash | Subset hash of trait questions and array of trait ids (or) values which make up this quota
+trait_questions | hash | Subset hash of trait questions and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 
 ## Show - Specific Quota
 
@@ -609,7 +609,7 @@ remaining_completes | integer | How many completes are yet to be delivered
 total_completes | integer | Total number of completes you wish for this quota
 total_incompletes | integer | Total number of respondents have attempted and failed this quota
 state | string | active or inactive
-trait_questions | hash | Subset hash of trait questions and array of trait ids (or) values which make up this quota
+trait_questions | hash | Subset hash of trait questions and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 
 ## Create - New Quota
 
@@ -650,7 +650,7 @@ Parameter | Type | Description
 id | integer | Unique identifier for the quota
 title | string | Name of the quota
 total_completes | integer | Total number of completes you wish for this quota
-trait_questions | hash | Subset hash of trait questions and array of trait ids (or) values which make up this quota
+trait_questions | hash | Subset hash of trait questions and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 
 **RESPONSE**
 
@@ -662,7 +662,7 @@ remaining_completes | integer | How many completes are yet to be delivered
 total_completes | integer | Total number of completes you wish for this quota
 total_incompletes | integer | Total number of respondents have attempted and failed this quota
 state | string | active or inactive
-trait_questions | hash | Subset hash of trait questions and array of trait ids (or) values which make up this quota
+trait_questions | hash | Subset hash of trait questions and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 
 
 
@@ -709,7 +709,7 @@ Parameter | Type | Description
 id | integer | Unique identifier for the quota
 title | string | Name of the quota
 total_completes | integer | Total number of completes you wish for this quota
-trait_questions | hash | Subset hash of trait questions and array of trait ids (or) values which make up this quota
+trait_questions | hash | Subset hash of trait questions and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 
 **RESPONSE**
 
@@ -721,7 +721,7 @@ remaining_completes | integer | How many completes are yet to be delivered
 total_completes | integer | Total number of completes you wish for this quota
 total_incompletes | integer | Total number of respondents have attempted and failed this quota
 state | string | active or inactive
-trait_questions | hash | Subset hash of trait questions and array of trait ids (or) values which make up this quota
+trait_questions | hash | Subset hash of trait questions and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 
 
 
