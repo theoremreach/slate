@@ -141,7 +141,7 @@ country_id | integer | The id of the country the trait question belongs to
 
 
 ```shell
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://api-staging.theoremreach.com/api/v1/trait_questions/1/traits?access_token=30832a87c5bf731cb234fb0f218c1989
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://api-staging.theoremreach.com/api/v1/trait_questions/6/traits?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -149,12 +149,12 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
 ```json
 [
   {
-    "id":1,
-    "value_text":"Ford Taurus"
+    "id":42199,
+    "value_text":"Female"
   },
   {
-    "id":2,
-    "value_text":"Ford Aerostar"
+    "id":42198,
+    "value_text":"Male"
   }
 ]
 ```
@@ -165,7 +165,7 @@ This end point allows you to retrieve all trait questions within a given country
 
 **HTTP REQUEST**
 
-`GET https://api.theoremreach.com/api/v1/trait_questions/1/traits?access_token=testkey`
+`GET https://api.theoremreach.com/api/v1/trait_questions/:id/traits?access_token=testkey`
 
 
 **REQUIRED PARAMETERS**
