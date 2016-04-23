@@ -30,7 +30,9 @@ We use HTTPS combined with an access_key to enforce access controls to secure re
 
 
 ```shell
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET https://api-staging.theoremreach.com/api/v1/countries?access_token=30832a87c5bf731cb234fb0f218c1989
+curl -i -H "Accept: application/json" \
+-H "Content-Type: application/json" -X GET \
+https://api-staging.theoremreach.com/api/v1/countries?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 <aside class="notice">
@@ -88,7 +90,7 @@ name | string | Name of the country/language combination
 ```shell
 curl -i -H "Accept: application/json" \
 -H "Content-Type: application/json" -X GET \
-https://api-staging.theoremreach.com/api/v1/countries/9/trait_questions?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/countries/9/trait_questions?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -191,10 +193,10 @@ value_text | string | The answer to the question
 ### POST - Feasibility For Trait Questions
 
 ```shell
-curl -H "Content-Type: application/json" --data 
-"{\"access_token\":\"testkey\",
-\"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]},
-\"country_id\":9,\"price\":5,\"loi\":10,\"incidence\":100}}" 
+curl -H "Content-Type: application/json" --data \
+"{\"access_token\":\"testkey\", \
+\"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]}, \
+\"country_id\":9,\"price\":5,\"loi\":10,\"incidence\":100}}" \
 https://api-staging.theoremreach.com/api/v1/feasibility?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
@@ -239,8 +241,8 @@ completes_per_day | integer | Number of completes you can expect per day
 ## Index - List Your Campaigns
 
 ```shell
-curl -i -H "Accept: application/json" 
--H "Content-Type: application/json" -X GET 
+curl -i -H "Accept: application/json" \
+-H "Content-Type: application/json" -X GET \
 https://api-staging.theoremreach.com/api/v1/campaigns?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
@@ -295,8 +297,8 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 ## Show - Show One of Your Campaigns
 
 ```shell
-curl -i -H "Accept: application/json" 
--H "Content-Type: application/json" -X GET 
+curl -i -H "Accept: application/json" \
+-H "Content-Type: application/json" -X GET \ 
 https://api-staging.theoremreach.com/api/v1/campaigns/1?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
@@ -353,13 +355,13 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 ## Create - Create a New Campaign
 
 ```shell
-curl -H "Content-Type: application/json" --data 
-"{\"access_token\":\"testkey\",
-\"campaign\":{\"title\":\"Fish\",\"cpi\":5.0,\"loi\":10,
-\"incidence\":100,\"survey_url\":\"http://\",
-\"start_date\":\"2016-04-17T11:22:34.961-05:00\",
-\"end_date\":\"2016-04-19T11:22:34.961-05:00\",
-\"country_id\":9}}" 
+curl -H "Content-Type: application/json" --data \
+"{\"access_token\":\"testkey\", \
+\"campaign\":{\"title\":\"Fish\",\"cpi\":5.0,\"loi\":10, \
+\"incidence\":100,\"survey_url\":\"http://\", \
+\"start_date\":\"2016-04-17T11:22:34.961-05:00\", \
+\"end_date\":\"2016-04-19T11:22:34.961-05:00\", \
+\"country_id\":9}}" \
 https://api-staging.theoremreach.com/api/v1/campaigns?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
@@ -429,13 +431,13 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 ## Update - Update an Existing Campaign
 
 ```shell
-curl -H "Content-Type: application/json" --data 
-"{\"access_token\":\"testkey\",
-\"campaign\":{\"title\":\"Fish\",\"cpi\":5.0,\"loi\":10,
-\"incidence\":100,\"survey_url\":\"http://\",
-\"start_date\":\"2016-04-17T11:22:34.961-05:00\",
-\"end_date\":\"2016-04-19T11:22:34.961-05:00\",
-\"country_id\":9}}" 
+curl -H "Content-Type: application/json" --data \
+"{\"access_token\":\"testkey\", \
+\"campaign\":{\"title\":\"Fish\",\"cpi\":5.0,\"loi\":10, \
+\"incidence\":100,\"survey_url\":\"http://\", \
+\"start_date\":\"2016-04-17T11:22:34.961-05:00\", \
+\"end_date\":\"2016-04-19T11:22:34.961-05:00\", \
+\"country_id\":9}}" \
 https://api-staging.theoremreach.com/api/v1/campaigns/1?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
@@ -524,8 +526,8 @@ In the above example, you will receive 500 respondents for the survey. 250 Males
 ## Index - All Quotas
 
 ```shell
-curl -i -H "Accept: application/json" 
--H "Content-Type: application/json" -X GET 
+curl -i -H "Accept: application/json" \
+-H "Content-Type: application/json" -X GET \ 
 https://api-staging.theoremreach.com/api/v1/campaigns/1/quotas?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
@@ -575,8 +577,8 @@ trait_questions | hash | Subset hash of trait questions and array of trait ids (
 ## Show - Specific Quota
 
 ```shell
-curl -i -H "Accept: application/json" 
--H "Content-Type: application/json" -X GET 
+curl -i -H "Accept: application/json" \
+-H "Content-Type: application/json" -X GET \ 
 https://api-staging.theoremreach.com/api/v1/quotas/1?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
@@ -625,10 +627,10 @@ trait_questions | hash | Subset hash of trait questions and array of trait ids (
 ## Create - New Quota
 
 ```shell
-curl -H "Content-Type: application/json" --data 
-"{\"access_token\":\"testkey\",
-\"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100,
-\"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}"  
+curl -H "Content-Type: application/json" --data \
+"{\"access_token\":\"testkey\", \
+\"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100, \
+\"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" \
 https://api-staging.theoremreach.com/api/v1/campaigns/1/quotas?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
@@ -684,10 +686,10 @@ trait_questions | hash | Subset hash of trait questions and array of trait ids (
 ## Update - Existing Quota
 
 ```shell
-curl -H "Content-Type: application/json" -X PUT 
---data "{\"access_token\":\"testkey\",
-\"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100,
-\"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}"
+curl -H "Content-Type: application/json" -X PUT \
+--data "{\"access_token\":\"testkey\", \
+\"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100, \
+\"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" \
 https://api-staging.theoremreach.com/api/v1/quotas/1?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
