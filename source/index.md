@@ -228,15 +228,13 @@ completes_per_day | integer | Number of completes you can expect per day
 
 # Callbacks
 
-### Respondent redirects
-
-> For a sucessful completion redirect respondent to:
+> For a sucessful completion for a respondent with a passed in id of 12345 redirect respondent to:
 
 ```shell
 https://theoremreach.com/respondent_result?status=10&user_id=12345
 ```
 
-These are the routes that you redirect a respondent to to ensure they are rewarded appropriately in their app. Note a respondent must be sent back to one of these routes. Replace the {USER_ID} with the actual ID we pass to you in place of the {USER_ID} in the initial redirect.
+These are the routes that you redirect a respondent to notify us when to award a user the reward in their app. Note: a respondent must be sent back to one of these routes. Replace the {USER_ID} with the actual ID we pass to you in place of the {USER_ID} in the initial redirect.
 
 Success:
 https://theoremreach.com/respondent_result?status=10&user_id={USER_ID}
