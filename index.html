@@ -262,7 +262,7 @@ https://api-staging.theoremreach.com/api/v1/trait_questions/1/traits?access_toke
 <pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="se">\</span>
 <span class="s2">"{</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">testkey</span><span class="se">\"</span><span class="s2">, </span><span class="se">\</span><span class="s2">
 </span><span class="se">\"</span><span class="s2">feasibility</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,10,20,21,22,23,24]}, </span><span class="se">\</span><span class="s2">
-</span><span class="se">\"</span><span class="s2">country_id</span><span class="se">\"</span><span class="s2">:9,</span><span class="se">\"</span><span class="s2">price</span><span class="se">\"</span><span class="s2">:5,</span><span class="se">\"</span><span class="s2">loi</span><span class="se">\"</span><span class="s2">:10,</span><span class="se">\"</span><span class="s2">incidence</span><span class="se">\"</span><span class="s2">:100}}"</span> <span class="se">\</span>
+</span><span class="se">\"</span><span class="s2">country_id</span><span class="se">\"</span><span class="s2">:9,</span><span class="se">\"</span><span class="s2">price</span><span class="se">\"</span><span class="s2">:2.5,</span><span class="se">\"</span><span class="s2">loi</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">incidence</span><span class="se">\"</span><span class="s2">:100}}"</span> <span class="se">\</span>
 https://api-staging.theoremreach.com/api/v1/feasibility?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
@@ -446,7 +446,7 @@ https://api-staging.theoremreach.com/api/v1/campaigns?access_token<span class="o
 
 <h2 id="show-show-one-of-your-campaigns">Show - Show One of Your Campaigns</h2>
 <pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/json"</span> -X GET <span class="se">\ </span>
+-H <span class="s2">"Content-Type: application/json"</span> -X GET <span class="se">\</span>
 https://api-staging.theoremreach.com/api/v1/campaigns/1?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
