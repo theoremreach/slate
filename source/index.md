@@ -356,11 +356,11 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 
 ```shell
 curl -H "Content-Type: application/json" --data \
-"{\"access_token\":\"testkey\", \
-\"campaign\":{\"title\":\"Fish\",\"cpi\":5.0,\"loi\":10, \
-\"incidence\":100,\"survey_url\":\"http://\", \
-\"start_date\":\"2016-04-17T11:22:34.961-05:00\", \
-\"end_date\":\"2016-04-19T11:22:34.961-05:00\", \
+"{\"access_token\":\"30832a87c5bf731cb234fb0f218c1989\", \
+\"campaign\":{\"title\":\"TR Test Campaign via API\",\"cpi\":3.0,\"loi\":10, \
+\"incidence\":90,\"survey_url\":\"http://clientsurvey.com/survey/12345?id={USER_ID}\", \
+\"start_date\":\"2016-04-8T11:22:34.961-05:00\", \
+\"end_date\":\"2016-04-13T11:22:34.961-05:00\", \
 \"country_id\":9}}" \
 https://api-staging.theoremreach.com/api/v1/campaigns?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
@@ -432,11 +432,11 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 
 ```shell
 curl -H "Content-Type: application/json" --data \
-"{\"access_token\":\"testkey\", \
-\"campaign\":{\"title\":\"Fish\",\"cpi\":5.0,\"loi\":10, \
-\"incidence\":100,\"survey_url\":\"http://\", \
+"{\"access_token\":\"30832a87c5bf731cb234fb0f218c1989\", \
+\"campaign\":{\"title\":\"New Fun Campaign\",\"cpi\":4.0,\"loi\":10, \
+\"incidence\":100,\"survey_url\":\"http://clientsurvey.com/survey/12345?id={USER_ID}\", \
 \"start_date\":\"2016-04-17T11:22:34.961-05:00\", \
-\"end_date\":\"2016-04-19T11:22:34.961-05:00\", \
+\"end_date\":\"2016-06-19T11:22:34.961-05:00\", \
 \"country_id\":9}}" \
 https://api-staging.theoremreach.com/api/v1/campaigns/1?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
