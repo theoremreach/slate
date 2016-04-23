@@ -185,7 +185,7 @@ value_text | string | The answer to the question
 ### POST - Feasibility For Trait Questions
 
 ```shell
-curl -H "Content-Type: application/json" --data "{\"access_token\":\"testkey\", \"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]}, \"country_id\":9,\"price\":2.5,\"loi\":1,\"incidence\":100}}" https://api-staging.theoremreach.com/api/v1/feasibility?access_token=30832a87c5bf731cb234fb0f218c1989
+curl -H "Content-Type: application/json" --data "{\"access_token\":\"testkey\", \"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]}, \"country_id\":9,\"price\":3.0,\"loi\":6,\"incidence\":100}}" https://api-staging.theoremreach.com/api/v1/feasibility?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -223,6 +223,29 @@ Parameter | Type | Description
 trait_questions | hash | Trait Question Hash
 completes_per_day | integer | Number of completes you can expect per day
 
+
+
+
+# Callbacks
+
+### Respondent redirects
+
+> For a sucessful completion redirect respondent to:
+
+```shell
+https://theoremreach.com/respondent_result?status=10&user_id=12345
+```
+
+These are the routes that you redirect a respondent to to ensure they are rewarded appropriately in their app. Note a respondent must be sent back to one of these routes. Replace the {USER_ID} with the actual ID we pass to you in place of the {USER_ID} in the initial redirect.
+
+Success:
+https://theoremreach.com/respondent_result?status=10&user_id={USER_ID}
+
+Overquota:
+https://theoremreach.com/respondent_result?status=3&user_id={USER_ID}
+
+Disqualified:
+https://theoremreach.com/respondent_result?status=4&user_id={USER_ID}
 
 # Campaigns
 
