@@ -26,7 +26,7 @@ When you are ready to go live, please contact us for a live api token. Update yo
 
 # Authentication
 
-We use HTTPS combined with an access_key to enforce access controls to secure resources
+We use HTTPS combined with an access_key to enforce access controls to secure resources.
 
 
 ```shell
@@ -34,7 +34,7 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
 ```
 
 <aside class="notice">
-You must replace <code>testkey</code> with your personal API key.  access_token must appear in every request.
+You must replace <code>testkey</code> with your personal API key. The access_token param must appear in every request.
 </aside>
 
 # Integration Guide
@@ -42,6 +42,8 @@ You must replace <code>testkey</code> with your personal API key.  access_token 
 ## Mapping
 
 The first step of integration is to load and map our data to your system. This will ensure your system is able to properly communicate with our API.  
+
+You must map countries, trait questions and traits. 
 
 # Countries
 
@@ -63,7 +65,7 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
 ```
 
 
-This end point allows you to retrieve all active country and language combinations supported by TheoremReach.  Only actively support countries will be returned.  The ID must be used when creating campaigns and checking feasibility.
+This end point allows you to retrieve all active country and language combinations currently supported by TheoremReach.  Only actively support countries will be returned.  The ID must be used when creating campaigns and checking feasibility. Please note the beta version of our API only supports our US based sample. Please contact admin@theoremreach.com if you are interested in running international sample requests.
 
 **HTTP REQUEST**
 
@@ -384,7 +386,7 @@ curl -H "Content-Type: application/json" --data "{\"access_token\":\"30832a87c5b
 ```
 
 
-This end point allows you to create a new campaign.  It will default to a status of Draft until atleast one quota is added and then the campaign is set to In Progress
+This end point allows you to create a new campaign.  It will default to a status of Draft until at least one quota is added and then the campaign is set to In Progress. 
 
 **HTTP REQUEST**
 
@@ -455,6 +457,10 @@ curl -H "Content-Type: application/json" --data "{\"access_token\":\"30832a87c5b
 
 This end point allows you to update an existing campaign.
 
+Please note - only campaigns with a status of "In Progress" will receive sample. Once a campaign is set to "In Progress" it cannot be set back to "Draft", rather it should be set to "Paused" if you wish to pause receiving sample for that project. 
+
+In order to receive sample you must use this call to set the status to "In Process" and there must be at least one quota that still needs completions.
+
 **HTTP REQUEST**
 
 `PUT https://api.theoremreach.com/api/v1/campaigns/:id?access_token=testkey`
@@ -502,7 +508,7 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 
 Quotas are the access control for your campaigns.  Think of them as both the gate keeper and also the ticket counter when entering a concert.  
 
-TheoremReach has simplified the quota process making it easier to understand and construct.  Essentially you build all your requirements of a quota into a single quota and then set the total_completes you desire.  Quotas are always cumulative.
+TheoremReach has simplified the quota process making it easier to understand and construct.  Essentially you build all your requirements of a quota into a single quota and then set the total_completes you desire for that particular.  Quotas are always cumulative.
 
 `Example:`
 
@@ -589,7 +595,7 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
 ```
 
 
-Fetch the details about a quota
+Fetch the details about a quota.
 
 **HTTP REQUEST**
 
@@ -637,7 +643,7 @@ curl -H "Content-Type: application/json" --data "{\"access_token\":\"testkey\", 
 ```
 
 
-Create a new quota for a campaign
+Create a new quota for a campaign.
 
 **HTTP REQUEST**
 
@@ -692,7 +698,7 @@ curl -H "Content-Type: application/json" -X PUT --data "{\"access_token\":\"test
 ```
 
 
-Update a quota for a campaign
+Update a quota for a campaign.
 
 **HTTP REQUEST**
 
