@@ -330,15 +330,13 @@ You must replace <code>testkey</code> with your personal API key.  access_token 
 
 <h1 id="callbacks">Callbacks</h1>
 
-<h3 id="respondent-redirects">Respondent redirects</h3>
-
 <blockquote>
-<p>For a sucessful completion redirect respondent to:</p>
+<p>For a sucessful completion for a respondent with a passed in id of 12345 redirect respondent to:</p>
 </blockquote>
 <pre class="highlight shell"><code>https://theoremreach.com/respondent_result?status<span class="o">=</span>10&amp;user_id<span class="o">=</span>12345
 </code></pre>
 
-<p>These are the routes that you redirect a respondent to to ensure they are rewarded appropriately in their app. Note a respondent must be sent back to one of these routes. Replace the {USER_ID} with the actual ID we pass to you in place of the {USER_ID} in the initial redirect.</p>
+<p>These are the routes that you redirect a respondent to notify us when to award a user the reward in their app. Note: a respondent must be sent back to one of these routes. Replace the {USER_ID} with the actual ID we pass to you in place of the {USER_ID} in the initial redirect.</p>
 
 <p>Success:
 https://theoremreach.com/respondent_result?status=10&amp;user_id={USER_ID}</p>
