@@ -431,11 +431,12 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 ```shell
 curl -H "Content-Type: application/json" --data 
 "{\"access_token\":\"testkey\",
-\"campaign\":{\"title\":\"New Fun Campaign\",\"cpi\":5.0,\"loi\":10,
+\"campaign\":{\"title\":\"Fish\",\"cpi\":5.0,\"loi\":10,
 \"incidence\":100,\"survey_url\":\"http://\",
 \"start_date\":\"2016-04-17T11:22:34.961-05:00\",
-\"end_date\":\"2016-06-19T11:22:34.961-05:00\",
-\"cosuntapi.theoremreach.comttp://localhost:3000/api/v1/campaigns?access_token=testkey
+\"end_date\":\"2016-04-19T11:22:34.961-05:00\",
+\"country_id\":9}}" 
+https://api.theoremreach.com/api/v1/campaigns/1?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -463,7 +464,7 @@ This end point allows you to update an existing campaign.
 
 **HTTP REQUEST**
 
-`PUT https://api.theoremreach.com/api/v1/campaigns/1?access_token=testkey`
+`PUT https://api.theoremreach.com/api/v1/campaigns/:id?access_token=testkey`
 
 **REQUIRED PARAMETERS**
 
