@@ -59,12 +59,12 @@
 
 <h1 id="authentication">Authentication</h1>
 
-<p>We use HTTPS combined with an access_key to enforce access controls to secure resources</p>
+<p>We use HTTPS combined with an access_key to enforce access controls to secure resources.</p>
 <pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/countries?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <aside class="notice">
-You must replace <code>testkey</code> with your personal API key.  access_token must appear in every request.
+You must replace <code>testkey</code> with your personal API key. The access_token param must appear in every request.
 </aside>
 
 <h1 id="integration-guide">Integration Guide</h1>
@@ -72,6 +72,8 @@ You must replace <code>testkey</code> with your personal API key.  access_token 
 <h2 id="mapping">Mapping</h2>
 
 <p>The first step of integration is to load and map our data to your system. This will ensure your system is able to properly communicate with our API.  </p>
+
+<p>You must map countries, trait questions and traits. </p>
 
 <h1 id="countries">Countries</h1>
 
@@ -90,7 +92,7 @@ You must replace <code>testkey</code> with your personal API key.  access_token 
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This end point allows you to retrieve all active country and language combinations supported by TheoremReach.  Only actively support countries will be returned.  The ID must be used when creating campaigns and checking feasibility.</p>
+<p>This end point allows you to retrieve all active country and language combinations currently supported by TheoremReach.  Only actively support countries will be returned.  The ID must be used when creating campaigns and checking feasibility. Please note the beta version of our API only supports our US based sample. Please contact admin@theoremreach.com if you are interested in running international sample requests.</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
@@ -573,7 +575,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This end point allows you to create a new campaign.  It will default to a status of Draft until atleast one quota is added and then the campaign is set to In Progress</p>
+<p>This end point allows you to create a new campaign.  It will default to a status of Draft until at least one quota is added and then the campaign is set to In Progress. </p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
@@ -738,6 +740,10 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p>This end point allows you to update an existing campaign.</p>
 
+<p>Please note - only campaigns with a status of &ldquo;In Progress&rdquo; will receive sample. Once a campaign is set to &ldquo;In Progress&rdquo; it cannot be set back to &ldquo;Draft&rdquo;, rather it should be set to &ldquo;Paused&rdquo; if you wish to pause receiving sample for that project. </p>
+
+<p>In order to receive sample you must use this call to set the status to &ldquo;In Process&rdquo; and there must be at least one quota that still needs completions.</p>
+
 <p><strong>HTTP REQUEST</strong></p>
 
 <p><code class="prettyprint">PUT https://api.theoremreach.com/api/v1/campaigns/:id?access_token=testkey</code></p>
@@ -877,7 +883,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p>Quotas are the access control for your campaigns.  Think of them as both the gate keeper and also the ticket counter when entering a concert.  </p>
 
-<p>TheoremReach has simplified the quota process making it easier to understand and construct.  Essentially you build all your requirements of a quota into a single quota and then set the total_completes you desire.  Quotas are always cumulative.</p>
+<p>TheoremReach has simplified the quota process making it easier to understand and construct.  Essentially you build all your requirements of a quota into a single quota and then set the total_completes you desire for that particular.  Quotas are always cumulative.</p>
 
 <p><code class="prettyprint">Example:</code></p>
 
@@ -993,7 +999,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Fetch the details about a quota</p>
+<p>Fetch the details about a quota.</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
@@ -1072,7 +1078,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Create a new quota for a campaign</p>
+<p>Create a new quota for a campaign.</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
@@ -1178,7 +1184,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>Update a quota for a campaign</p>
+<p>Update a quota for a campaign.</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
