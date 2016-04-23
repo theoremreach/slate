@@ -88,7 +88,7 @@ name | string | Name of the country/language combination
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-http://api.theoremreach.com/api/v1/countries/9/trait_questions?access_token=testkey
+https://api.theoremreach.com/api/v1/countries/9/trait_questions?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -120,7 +120,7 @@ This end point allows you to retrieve all active trait questions within a given 
 
 **HTTP REQUEST**
 
-`GET http://api.theoremreach.com/api/v1/countries/:country_id/trait_questions?access_token=testkey`
+`GET https://api.theoremreach.com/api/v1/countries/:country_id/trait_questions?access_token=testkey`
 
 
 **REQUIRED PARAMETERS**
@@ -147,7 +147,7 @@ country_id | integer | The id of the country the trait question belongs to
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-http://api.theoremreach.com/api/v1/trait_questions/1/traits?access_token=testkey
+https://api.theoremreach.com/api/v1/trait_questions/1/traits?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -171,7 +171,7 @@ This end point allows you to retrieve all trait questions within a given country
 
 **HTTP REQUEST**
 
-`GET http://api.theoremreach.com/api/v1/trait_questions/1/traits?access_token=testkey`
+`GET https://api.theoremreach.com/api/v1/trait_questions/1/traits?access_token=testkey`
 
 
 **REQUIRED PARAMETERS**
