@@ -48,8 +48,8 @@ The first step of integration is to load and map our data to your system. This w
 ### INDEX - List Available Countries
 
 ```shell
-curl -i -H "Accept: application/json" 
--H "Content-Type: application/json" -X GET 
+curl -i -H "Accept: application/json" \
+-H "Content-Type: application/json" -X GET \
 https://api-staging.theoremreach.com/api/v1/countries?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
