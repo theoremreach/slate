@@ -197,7 +197,7 @@ You must replace <code>testkey</code> with your personal API key.  access_token 
 </tbody></table>
 
 <h1 id="traits">Traits</h1>
-<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/trait_questions/1/traits?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/trait_questions/6/traits?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -205,12 +205,12 @@ You must replace <code>testkey</code> with your personal API key.  access_token 
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"value_text"</span><span class="p">:</span><span class="s2">"Ford Taurus"</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">42199</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"value_text"</span><span class="p">:</span><span class="s2">"Female"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"value_text"</span><span class="p">:</span><span class="s2">"Ford Aerostar"</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">42198</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"value_text"</span><span class="p">:</span><span class="s2">"Male"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -221,7 +221,7 @@ You must replace <code>testkey</code> with your personal API key.  access_token 
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/trait_questions/1/traits?access_token=testkey</code></p>
+<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/trait_questions/:id/traits?access_token=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
