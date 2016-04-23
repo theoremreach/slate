@@ -196,7 +196,7 @@ value_text | string | The answer to the question
 curl -H "Content-Type: application/json" --data \
 "{\"access_token\":\"testkey\", \
 \"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]}, \
-\"country_id\":9,\"price\":5,\"loi\":10,\"incidence\":100}}" \
+\"country_id\":9,\"price\":2.5,\"loi\":1,\"incidence\":100}}" \
 https://api-staging.theoremreach.com/api/v1/feasibility?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
@@ -298,7 +298,7 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 
 ```shell
 curl -i -H "Accept: application/json" \
--H "Content-Type: application/json" -X GET \ 
+-H "Content-Type: application/json" -X GET \
 https://api-staging.theoremreach.com/api/v1/campaigns/1?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
