@@ -30,7 +30,7 @@ We use HTTPS combined with an access_key to enforce access controls to secure re
 
 
 ```shell
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET https://api.theoremreach.com/api/v1/countries?access_token=testkey
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET https://api-staging.theoremreach.com/api/v1/countries?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 <aside class="notice">
@@ -50,7 +50,7 @@ The first step of integration is to load and map our data to your system. This w
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/countries?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/countries?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -88,7 +88,7 @@ name | string | Name of the country/language combination
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/countries/9/trait_questions?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/countries/9/trait_questions?access_token=testkey
 ```
 
 > The above command returns JSON structured like this:
@@ -147,7 +147,7 @@ country_id | integer | The id of the country the trait question belongs to
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/trait_questions/1/traits?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/trait_questions/1/traits?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -195,7 +195,7 @@ curl -H "Content-Type: application/json" --data
 "{\"access_token\":\"testkey\",
 \"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]},
 \"country_id\":9,\"price\":5,\"loi\":10,\"incidence\":100}}" 
-https://api.theoremreach.com/api/v1/feasibility?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/feasibility?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -241,7 +241,7 @@ completes_per_day | integer | Number of completes you can expect per day
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/campaigns?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/campaigns?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -297,7 +297,7 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/campaigns/1?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/campaigns/1?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -360,7 +360,7 @@ curl -H "Content-Type: application/json" --data
 \"start_date\":\"2016-04-17T11:22:34.961-05:00\",
 \"end_date\":\"2016-04-19T11:22:34.961-05:00\",
 \"country_id\":9}}" 
-https://api.theoremreach.com/api/v1/campaigns?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/campaigns?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -436,7 +436,7 @@ curl -H "Content-Type: application/json" --data
 \"start_date\":\"2016-04-17T11:22:34.961-05:00\",
 \"end_date\":\"2016-04-19T11:22:34.961-05:00\",
 \"country_id\":9}}" 
-https://api.theoremreach.com/api/v1/campaigns/1?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/campaigns/1?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -526,7 +526,7 @@ In the above example, you will receive 500 respondents for the survey. 250 Males
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/campaigns/1/quotas?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/campaigns/1/quotas?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this for a quota of males aged 18-24:
@@ -577,7 +577,7 @@ trait_questions | hash | Subset hash of trait questions and array of trait ids (
 ```shell
 curl -i -H "Accept: application/json" 
 -H "Content-Type: application/json" -X GET 
-https://api.theoremreach.com/api/v1/quotas/1?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/quotas/1?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
@@ -629,7 +629,7 @@ curl -H "Content-Type: application/json" --data
 "{\"access_token\":\"testkey\",
 \"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100,
 \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}"  
-https://api.theoremreach.com/api/v1/campaigns/1/quotas?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/campaigns/1/quotas?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this to receive 100 respondents aged 18-24:
@@ -688,7 +688,7 @@ curl -H "Content-Type: application/json" -X PUT
 --data "{\"access_token\":\"testkey\",
 \"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100,
 \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}"
-https://api.theoremreach.com/api/v1/quotas/1?access_token=testkey
+https://api-staging.theoremreach.com/api/v1/quotas/1?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > The above command returns JSON structured like this:
