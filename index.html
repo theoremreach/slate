@@ -717,12 +717,13 @@ https://api.theoremreach.com/api/v1/campaigns?access_token<span class="o">=</spa
 <h2 id="update-update-an-existing-campaign">Update - Update an Existing Campaign</h2>
 <pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data 
 <span class="s2">"{</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">testkey</span><span class="se">\"</span><span class="s2">,
-</span><span class="se">\"</span><span class="s2">campaign</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">New Fun Campaign</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">cpi</span><span class="se">\"</span><span class="s2">:5.0,</span><span class="se">\"</span><span class="s2">loi</span><span class="se">\"</span><span class="s2">:10,
+</span><span class="se">\"</span><span class="s2">campaign</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Fish</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">cpi</span><span class="se">\"</span><span class="s2">:5.0,</span><span class="se">\"</span><span class="s2">loi</span><span class="se">\"</span><span class="s2">:10,
 </span><span class="se">\"</span><span class="s2">incidence</span><span class="se">\"</span><span class="s2">:100,</span><span class="se">\"</span><span class="s2">survey_url</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">http://</span><span class="se">\"</span><span class="s2">,
 </span><span class="se">\"</span><span class="s2">start_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-04-17T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">,
-</span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-06-19T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">,
-</span><span class="se">\"</span><span class="s2">cosuntapi.theoremreach.comttp://localhost:3000/api/v1/campaigns?access_token=testkey
-</span></code></pre>
+</span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-04-19T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">,
+</span><span class="se">\"</span><span class="s2">country_id</span><span class="se">\"</span><span class="s2">:9}}"</span> 
+https://api.theoremreach.com/api/v1/campaigns/1?access_token<span class="o">=</span>testkey
+</code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -748,7 +749,7 @@ https://api.theoremreach.com/api/v1/campaigns?access_token<span class="o">=</spa
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">PUT https://api.theoremreach.com/api/v1/campaigns/1?access_token=testkey</code></p>
+<p><code class="prettyprint">PUT https://api.theoremreach.com/api/v1/campaigns/:id?access_token=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
