@@ -187,14 +187,13 @@ value_text | string | The answer to the question
 ### POST - Feasibility For Trait Questions
 
 ```shell
-curl -H "Content-Type: application/json" --data "{\"access_token\":\"30832a87c5bf731cb234fb0f218c1989\", \"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]}, \"country_id\":9,\"price\":3.0,\"loi\":6,\"incidence\":100}}" http://api-staging.theoremreach.com/api/v1/feasibility?access_token=30832a87c5bf731cb234fb0f218c1989
+curl -H "Content-Type: application/json" --data "{\"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]}, \"country_id\":9,\"price\":3.0,\"loi\":6,\"incidence\":100}}" http://api-staging.theoremreach.com/api/v1/feasibility?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > Example REQUEST JSON:
 
 ```json
 {
-  "access_token":"30832a87c5bf731cb234fb0f218c1989", 
   "feasibility":
     {
       "trait_questions":
@@ -220,7 +219,6 @@ curl -H "Content-Type: application/json" --data "{\"access_token\":\"30832a87c5b
 ]
 ```
 
-
 This end point allows you to check the number of completes per day you should receive with a given set of trait questions.
 
 **HTTP REQUEST**
@@ -243,9 +241,6 @@ Parameter | Type | Description
 --------- | ---- | -----------
 trait_questions | hash | Subset hash of trait questions ids and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 completes_per_day | integer | Number of completes you can expect per day
-
-
-
 
 # Callbacks
 
@@ -381,14 +376,13 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 ## Create - Create a New Campaign
 
 ```shell
-curl -H "Content-Type: application/json" --data "{\"access_token\":\"30832a87c5bf731cb234fb0f218c1989\", \"campaign\":{\"title\":\"TR Test Campaign via API\",\"cpi\":3.0,\"loi\":10, \"incidence\":90,\"survey_url\":\"http://clientsurvey.com/survey/12345?id={USER_ID}\", \"start_date\":\"2016-04-8T11:22:34.961-05:00\", \"end_date\":\"2016-04-13T11:22:34.961-05:00\", \"country_id\":9}}" http://api-staging.theoremreach.com/api/v1/campaigns?access_token=30832a87c5bf731cb234fb0f218c1989
+curl -H "Content-Type: application/json" --data "{\"campaign\":{\"title\":\"TR Test Campaign via API\",\"cpi\":3.0,\"loi\":10, \"incidence\":90,\"survey_url\":\"http://clientsurvey.com/survey/12345?id={USER_ID}\", \"start_date\":\"2016-04-8T11:22:34.961-05:00\", \"end_date\":\"2016-04-13T11:22:34.961-05:00\", \"country_id\":9}}" http://api-staging.theoremreach.com/api/v1/campaigns?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > Example REQUEST JSON:
 
 ```json
 {
-  "access_token":"30832a87c5bf731cb234fb0f218c1989",
    "campaign":
    {
     "title":"TR Test Campaign via API",
@@ -468,13 +462,12 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 ## Update - Update an Existing Campaign
 
 ```shell
-curl -H "Content-Type: application/json" --data "{\"access_token\":\"30832a87c5bf731cb234fb0f218c1989\", \"campaign\":{\"title\":\"New Fun Campaign\",\"cpi\":4.0,\"loi\":10, \"incidence\":100,\"survey_url\":\"http://clientsurvey.com/survey/12345?id={USER_ID}\", \"start_date\":\"2016-04-17T11:22:34.961-05:00\", \"end_date\":\"2016-06-19T11:22:34.961-05:00\", \"country_id\":9}}" http://api-staging.theoremreach.com/api/v1/campaigns/57472?access_token=30832a87c5bf731cb234fb0f218c1989
+curl -H "Content-Type: application/json" --data "{\"campaign\":{\"title\":\"New Fun Campaign\",\"cpi\":4.0,\"loi\":10, \"incidence\":100,\"survey_url\":\"http://clientsurvey.com/survey/12345?id={USER_ID}\", \"start_date\":\"2016-04-17T11:22:34.961-05:00\", \"end_date\":\"2016-06-19T11:22:34.961-05:00\", \"country_id\":9}}" http://api-staging.theoremreach.com/api/v1/campaigns/57472?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 > Example REQUEST JSON
 
 ```json
 {
-  "access_token":"30832a87c5bf731cb234fb0f218c1989",
   "campaign":
     {
       "title":"New Fun Campaign",
@@ -671,14 +664,13 @@ trait_questions | hash | Subset hash of trait questions ids and array of trait i
 ## Create - New Quota
 
 ```shell
-curl -H "Content-Type: application/json" --data "{\"access_token\":\"testkey\", \"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100, \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?access_token=30832a87c5bf731cb234fb0f218c1989
+curl -H "Content-Type: application/json" --data "{\"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100, \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > Example REQUEST JSON (100 respondents aged 18-24):
 
 ```json
   {
-    "access_token":"30832a87c5bf731cb234fb0f218c1989",
     "quota":
       {
         "title":"Age 18-24",
@@ -741,14 +733,13 @@ trait_questions | hash | Subset hash of trait questions ids and array of trait i
 ## Update - Existing Quota
 
 ```shell
-curl -H "Content-Type: application/json" -X PUT --data "{\"access_token\":\"testkey\", \"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100, \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" http://api-staging.theoremreach.com/api/v1/quotas/72057?access_token=30832a87c5bf731cb234fb0f218c1989
+curl -H "Content-Type: application/json" -X PUT --data "{\"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100, \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" http://api-staging.theoremreach.com/api/v1/quotas/72057?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > Example REQUEST JSON:
 
 ```json
 {
-  "access_token":"30832a87c5bf731cb234fb0f218c1989",
   "quota":
     {
       "title":"Age 18-24",
