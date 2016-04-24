@@ -575,7 +575,26 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example REQUEST JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"access_token"</span><span class="p">:</span><span class="s2">"30832a87c5bf731cb234fb0f218c1989"</span><span class="p">,</span><span class="w">
+   </span><span class="nt">"campaign"</span><span class="p">:</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"TR Test Campaign via API"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cpi"</span><span class="p">:</span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"loi"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"incidence"</span><span class="p">:</span><span class="mi">90</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"survey_url"</span><span class="p">:</span><span class="s2">"http://clientsurvey.com/survey/12345?id={USER_ID}"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"start_date"</span><span class="p">:</span><span class="s2">"2016-04-8T11:22:34.961-05:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"end_date"</span><span class="p">:</span><span class="s2">"2016-04-13T11:22:34.961-05:00"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_id"</span><span class="p">:</span><span class="mi">9</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Example RESPONSE JSON:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -738,7 +757,26 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example REQUEST JSON</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"access_token"</span><span class="p">:</span><span class="s2">"30832a87c5bf731cb234fb0f218c1989"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"campaign"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"New Fun Campaign"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"cpi"</span><span class="p">:</span><span class="mf">4.0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"loi"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"incidence"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"survey_url"</span><span class="p">:</span><span class="s2">"http://clientsurvey.com/survey/12345?id={USER_ID}"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"start_date"</span><span class="p">:</span><span class="s2">"2016-04-17T11:22:34.961-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"end_date"</span><span class="p">:</span><span class="s2">"2016-06-19T11:22:34.961-05:00"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country_id"</span><span class="p">:</span><span class="mi">9</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Example RESPONSE JSON:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -1079,7 +1117,24 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this to receive 100 respondents aged 18-24:</p>
+<p>Example REQUEST JSON (100 respondents aged 18-24):</p>
+</blockquote>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"access_token"</span><span class="p">:</span><span class="s2">"30832a87c5bf731cb234fb0f218c1989"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quota"</span><span class="p">:</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Age 18-24"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"total_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"trait_questions"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"1"</span><span class="p">:[</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Example RESPONSE JSON:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -1183,6 +1238,23 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 <h2 id="update-existing-quota">Update - Existing Quota</h2>
 <pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">access_token</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">testkey</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">quota</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Age 18-24</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">total_completes</span><span class="se">\"</span><span class="s2">:100, </span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,19,20,21,22,23,24]}}}"</span> http://api-staging.theoremreach.com/api/v1/quotas/72057?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
+
+<blockquote>
+<p>Example REQUEST JSON:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"access_token"</span><span class="p">:</span><span class="s2">"30832a87c5bf731cb234fb0f218c1989"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"quota"</span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Age 18-24"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"total_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"trait_questions"</span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"1"</span><span class="p">:[</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
