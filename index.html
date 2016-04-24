@@ -75,7 +75,23 @@ You must replace <code>testkey</code> with your personal API key. The access_tok
 
 <p>The first step of integration is to load and map our data to your system. This will ensure your system is able to properly communicate with our API.  </p>
 
-<p>You must map countries, trait questions and traits. </p>
+<p>You must map countries, trait questions and traits before creating any campaigns.</p>
+
+<h2 id="campaign-creation">Campaign Creation</h2>
+
+<p>After understanding and creating mappings for the above tables you can start to create a campaign.  When you first create a campaign it will be set to a status of &lsquo;Draft&rsquo;.  Specify the CPI, LOI, Name, and some of the other required pieces of information.  Specifying start and end dates will tell a campaign when to turn on and off.</p>
+
+<h2 id="quota-creation">Quota Creation</h2>
+
+<p>Once the base campaign is created you need to assign your quotas for respondents.  A quota is a stand-alone bucket for which you want to fill a certain demographic.  Each quota works independantly of any other quota.  The campaign will inherit a total quota additive of all active quotas, which you dont need to worry about through the api or manage.  </p>
+
+<p>Once a quota is filled it will automatically inactivate.  If all the quotas are filled it will automatically change the campaign to &ldquo;Completed&rdquo;.</p>
+
+<p>To change a quota to inactive via the API just the total_completes value to 0.  If you want to open a quota back up and have already filled it, set the total_completes value to a number higher than the remaining_completes count.  If the campaign is Completed you will need to re-enable the campaign. (Set to &ldquo;In Progress&rdquo;)</p>
+
+<h2 id="launch-the-campaign">Launch the Campaign</h2>
+
+<p>With a valid campaign set up and at least one active quota you can launch the campaign.  Simply set the status to &ldquo;In Progress&rdquo;.</p>
 
 <h1 id="countries">Countries</h1>
 
@@ -437,7 +453,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 <tr>
 <td>status</td>
 <td>string</td>
-<td>&lsquo;Completed&rsquo;, &#39;In Progress&rsquo;, &#39;Paused&rsquo;, &#39;Draft&rsquo; (Draft is default and cannot be set)</td>
+<td>&#39;Completed&rsquo;, &#39;In Progress&rsquo;, &#39;Paused&rsquo;, &#39;Draft&rsquo; (Draft is default and cannot be set)</td>
 </tr>
 <tr>
 <td>loi</td>
