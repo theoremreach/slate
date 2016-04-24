@@ -53,7 +53,7 @@ You must map countries, trait questions and traits.
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://api-staging.theoremreach.com/api/v1/countries?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
-> The above command returns JSON structured like this:
+> Example RESPONSE JSON:
 
 ```json
 [
@@ -89,7 +89,7 @@ name | string | Name of the country/language combination
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://api-staging.theoremreach.com/api/v1/countries/9/trait_questions?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
-> The above command returns JSON structured like this:
+> Example RESPONSE JSON:
 
 ```json
 [
@@ -120,11 +120,9 @@ This end point allows you to retrieve all active trait questions within a given 
 
 `GET https://api.theoremreach.com/api/v1/countries/:country_id/trait_questions?access_token=testkey`
 
-
 **REQUIRED PARAMETERS**
 
 `None`
-
 
 **RESPONSE**
 
@@ -136,17 +134,13 @@ question_type | string | The type of question (single, multiple, numeric, etc.)
 trait_question_type | string | Short description of the question
 country_id | integer | The id of the country the trait question belongs to
 
-
-
 # Traits
-
-
 
 ```shell
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://api-staging.theoremreach.com/api/v1/trait_questions/6/traits?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
-> The above command returns JSON structured like this:
+> Example RESPONSE JSON:
 
 ```json
 [
@@ -269,7 +263,7 @@ https://theoremreach.com/respondent_result?status=4&user_id={USER_ID}
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://api-staging.theoremreach.com/api/v1/campaigns?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
-> The above command returns JSON structured like this:
+> Example RESPONSE JSON:
 
 ```json
 [
@@ -288,7 +282,6 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
   }
 ]
 ```
-
 
 This end point allows you to retrieve all the campaigns that you've created regardless of their status.
 
@@ -323,7 +316,7 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://api-staging.theoremreach.com/api/v1/campaigns/57472?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
-> The above command returns JSON structured like this:
+> Example RESPONSE JSON:
 
 ```json
 [
@@ -342,7 +335,6 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
   }
 ]
 ```
-
 
 This end point allows you to retrieve information about a specific campaign that you've created.
 
@@ -369,9 +361,6 @@ country_id | integer | Country id of the campaign
 survey_url | string | Production url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
 test_survey_url | string | Test url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
 cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 per complete and increments up in $0.50 increments
-
-
-
 
 ## Create - Create a New Campaign
 
@@ -502,7 +491,6 @@ curl -H "Content-Type: application/json" --data "{\"campaign\":{\"title\":\"New 
 ]
 ```
 
-
 This end point allows you to update an existing campaign.
 
 Please note - only campaigns with a status of "In Progress" will receive sample. Once a campaign is set to "In Progress" it cannot be set back to "Draft", rather it should be set to "Paused" if you wish to pause receiving sample for that project. 
@@ -571,7 +559,7 @@ In the above example, you will receive 500 respondents for the survey. 250 Males
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
-> The above command returns JSON structured like this for a quota of males aged 18-24:
+> Example RESPONSE JSON:
 
 ```json
 
@@ -619,7 +607,7 @@ trait_questions | hash | Subset hash of trait questions ids and array of trait i
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://api-staging.theoremreach.com/api/v1/quotas/72057?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
-> The above command returns JSON structured like this:
+> Example RESPONSE JSON:
 
 ```json
 [
@@ -752,7 +740,7 @@ curl -H "Content-Type: application/json" -X PUT --data "{\"quota\":{\"title\":\"
 }
 ```
 
-> The above command returns JSON structured like this:
+> Example RESPONSE JSON:
 
 ```json
 [
