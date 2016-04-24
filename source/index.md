@@ -45,7 +45,23 @@ You must replace <code>testkey</code> with your personal API key. The access_tok
 
 The first step of integration is to load and map our data to your system. This will ensure your system is able to properly communicate with our API.  
 
-You must map countries, trait questions and traits. 
+You must map countries, trait questions and traits before creating any campaigns.
+
+## Campaign Creation
+
+After understanding and creating mappings for the above tables you can start to create a campaign.  When you first create a campaign it will be set to a status of 'Draft'.  Specify the CPI, LOI, Name, and some of the other required pieces of information.  Specifying start and end dates will tell a campaign when to turn on and off.
+
+## Quota Creation
+
+Once the base campaign is created you need to assign your quotas for respondents.  A quota is a stand-alone bucket for which you want to fill a certain demographic.  Each quota works independantly of any other quota.  The campaign will inherit a total quota additive of all active quotas, which you dont need to worry about through the api or manage.  
+
+Once a quota is filled it will automatically inactivate.  If all the quotas are filled it will automatically change the campaign to "Completed".
+
+To change a quota to inactive via the API just the total_completes value to 0.  If you want to open a quota back up and have already filled it, set the total_completes value to a number higher than the remaining_completes count.  If the campaign is Completed you will need to re-enable the campaign. (Set to "In Progress")
+
+## Launch the Campaign
+
+With a valid campaign set up and at least one active quota you can launch the campaign.  Simply set the status to "In Progress".
 
 # Countries
 
