@@ -187,10 +187,29 @@ value_text | string | The answer to the question
 ### POST - Feasibility For Trait Questions
 
 ```shell
-curl -H "Content-Type: application/json" --data "{\"access_token\":\"testkey\", \"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]}, \"country_id\":9,\"price\":3.0,\"loi\":6,\"incidence\":100}}" http://api-staging.theoremreach.com/api/v1/feasibility?access_token=30832a87c5bf731cb234fb0f218c1989
+curl -H "Content-Type: application/json" --data "{\"access_token\":\"30832a87c5bf731cb234fb0f218c1989\", \"feasibility\":{\"trait_questions\":{\"1\":[18,10,20,21,22,23,24]}, \"country_id\":9,\"price\":3.0,\"loi\":6,\"incidence\":100}}" http://api-staging.theoremreach.com/api/v1/feasibility?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
-> The above command returns JSON structured like this:
+> Example REQUEST JSON:
+
+```json
+{
+  "access_token":"30832a87c5bf731cb234fb0f218c1989", 
+  "feasibility":
+    {
+      "trait_questions":
+        {
+          "1":[18,10,20,21,22,23,24]
+        }, 
+        "country_id":9,
+        "price":3.0,
+        "loi":6,
+        "incidence":100
+    }
+}
+```
+
+> Example RESPONSE JSON:
 
 ```json
 [
