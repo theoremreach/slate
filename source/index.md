@@ -384,7 +384,26 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 curl -H "Content-Type: application/json" --data "{\"access_token\":\"30832a87c5bf731cb234fb0f218c1989\", \"campaign\":{\"title\":\"TR Test Campaign via API\",\"cpi\":3.0,\"loi\":10, \"incidence\":90,\"survey_url\":\"http://clientsurvey.com/survey/12345?id={USER_ID}\", \"start_date\":\"2016-04-8T11:22:34.961-05:00\", \"end_date\":\"2016-04-13T11:22:34.961-05:00\", \"country_id\":9}}" http://api-staging.theoremreach.com/api/v1/campaigns?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
-> The above command returns JSON structured like this:
+> Example REQUEST JSON:
+
+```json
+{
+  "access_token":"30832a87c5bf731cb234fb0f218c1989",
+   "campaign":
+   {
+    "title":"TR Test Campaign via API",
+    "cpi":3.0,
+    "loi":10,
+    "incidence":90,
+    "survey_url":"http://clientsurvey.com/survey/12345?id={USER_ID}",
+    "start_date":"2016-04-8T11:22:34.961-05:00",
+    "end_date":"2016-04-13T11:22:34.961-05:00",
+    "country_id":9
+  }
+}
+```
+
+> Example RESPONSE JSON:
 
 ```json
 [
@@ -403,7 +422,6 @@ curl -H "Content-Type: application/json" --data "{\"access_token\":\"30832a87c5b
   }
 ]
 ```
-
 
 This end point allows you to create a new campaign.  It will default to a status of Draft until at least one quota is added and then the campaign is set to In Progress. 
 
@@ -452,8 +470,26 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 ```shell
 curl -H "Content-Type: application/json" --data "{\"access_token\":\"30832a87c5bf731cb234fb0f218c1989\", \"campaign\":{\"title\":\"New Fun Campaign\",\"cpi\":4.0,\"loi\":10, \"incidence\":100,\"survey_url\":\"http://clientsurvey.com/survey/12345?id={USER_ID}\", \"start_date\":\"2016-04-17T11:22:34.961-05:00\", \"end_date\":\"2016-06-19T11:22:34.961-05:00\", \"country_id\":9}}" http://api-staging.theoremreach.com/api/v1/campaigns/57472?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
+> Example REQUEST JSON
 
-> The above command returns JSON structured like this:
+```json
+{
+  "access_token":"30832a87c5bf731cb234fb0f218c1989",
+  "campaign":
+    {
+      "title":"New Fun Campaign",
+      "cpi":4.0,
+      "loi":10,
+      "incidence":100,
+      "survey_url":"http://clientsurvey.com/survey/12345?id={USER_ID}",
+      "start_date":"2016-04-17T11:22:34.961-05:00",
+      "end_date":"2016-06-19T11:22:34.961-05:00",
+      "country_id":9
+    }
+}
+```
+
+> Example RESPONSE JSON:
 
 ```json
 [
@@ -520,9 +556,6 @@ survey_url | string | Production url for campaign. Must contain a parameter that
 test_survey_url | string | Test url for campaign. Must contain a parameter that stores the user's ID in the format of {USER_ID}
 cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 per complete and increments up in $0.50 increments
 
-
-
-
 # Quotas
 
 Quotas are the access control for your campaigns.  Think of them as both the gate keeper and also the ticket counter when entering a concert.  
@@ -564,7 +597,6 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
   }
 ]
 ```
-
 
 This end point will allow you to fetch all of the quotas for a campaign.
 
@@ -642,7 +674,24 @@ trait_questions | hash | Subset hash of trait questions ids and array of trait i
 curl -H "Content-Type: application/json" --data "{\"access_token\":\"testkey\", \"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100, \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?access_token=30832a87c5bf731cb234fb0f218c1989
 ```
 
-> The above command returns JSON structured like this to receive 100 respondents aged 18-24:
+> Example REQUEST JSON (100 respondents aged 18-24):
+
+```json
+  {
+    "access_token":"30832a87c5bf731cb234fb0f218c1989",
+    "quota":
+      {
+        "title":"Age 18-24",
+        "total_completes":100,
+        "trait_questions":
+        {
+          "1":[18,19,20,21,22,23,24]
+        }
+      }
+  }
+```
+
+> Example RESPONSE JSON:
 
 ```json
 [
@@ -689,12 +738,27 @@ total_incompletes | integer | Total number of respondents have attempted and fai
 state | string | active or inactive
 trait_questions | hash | Subset hash of trait questions ids and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 
-
-
 ## Update - Existing Quota
 
 ```shell
 curl -H "Content-Type: application/json" -X PUT --data "{\"access_token\":\"testkey\", \"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100, \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" http://api-staging.theoremreach.com/api/v1/quotas/72057?access_token=30832a87c5bf731cb234fb0f218c1989
+```
+
+> Example REQUEST JSON:
+
+```json
+{
+  "access_token":"30832a87c5bf731cb234fb0f218c1989",
+  "quota":
+    {
+      "title":"Age 18-24",
+      "total_completes":100,
+      "trait_questions":
+        {
+          "1":[18,19,20,21,22,23,24]
+        }
+    }
+}
 ```
 
 > The above command returns JSON structured like this:
