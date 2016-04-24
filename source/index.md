@@ -24,6 +24,8 @@ The first API token that we send you will only grant you access to our staging s
 
 When you are ready to go live, please contact us for a live api token. Update your routes to point to https://api.theoremreach.com. Please note the use of SSL/HTTPS for production.
 
+Don't hesitate to reach out to admin@theoremreach.com with any questions that arise as part of the implementation! We're happy to help!
+
 # Authentication
 
 We use HTTPS combined with an access_key to enforce access controls to secure resources.
