@@ -116,14 +116,16 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
     "question_text":"What is your age?",
     "question_type":"numeric",
     "trait_question_type":"age",
-    "country_id":9
+    "country_id":9,
+    "can_check_feasibility": true
   },
   {
     "id":2,
     "question_text":"What is your zip code?",
     "question_type":"numeric",
     "trait_question_type":"zip",
-    "country_id":9
+    "country_id":9,
+    "can_check_feasibility": false
   }
 ]
 ```
@@ -151,6 +153,7 @@ question_text | string | The text of the question that the user will see
 question_type | string | The type of question (single, multiple, numeric, etc.)
 trait_question_type | string | Short description of the question
 country_id | integer | The id of the country the trait question belongs to
+can_check_feasibility | boolean | Can this trait question be used in the check feasibility call?
 
 # Traits
 
@@ -231,7 +234,26 @@ curl -H "Content-Type: application/json" --data "{\"feasibility\":{\"trait_quest
 ]
 ```
 
-This end point allows you to check the number of completes per day you should receive with a given set of trait questions.
+This end point allows you to check the number of completes per day you should receive with a given set of trait questions.  Keep in mind that we only allow feasibility checking for this list of trait_questions, currently.
+
+```json
+  [
+    {:id=>1, :question=>"What is your age?"}, 
+    {:id=>3, :question=>"Are you using a mobile device?"}, 
+    {:id=>4, :question=>"Are you using a mobile device?"}, 
+    {:id=>6, :question=>"What is your gender?"}, 
+    {:id=>7, :question=>"Are you of Hispanic, Latino, or Spanish origin?"}, 
+    {:id=>8, :question=>"What is your race?"}, 
+    {:id=>10, :question=>"What is the highest level of education you have completed?"}, 
+    {:id=>73, :question=>"What is your current employment status?"}, 
+    {:id=>76, :question=>"Please choose which departments/products you have influence or decision making authority on spending/purchasing?"}, 
+    {:id=>83, :question=>"How much total combined income do all members of your household earn before taxes?"}, 
+    {:id=>101, :question=>"What is your state?"}, 
+    {:id=>102, :question=>"What is your DMA?"}, 
+    {:id=>103, :question=>"What is your REGION?"}, 
+    {:id=>104, :question=>"What is your DIVISION?"}
+  ]
+```
 
 **HTTP REQUEST**
 
