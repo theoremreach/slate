@@ -311,23 +311,28 @@ You must replace <code>testkey</code> with your personal API key. The api_key pa
 </span></code></pre>
 
 <p>This end point allows you to check the number of completes per day you should receive with a given set of trait questions.  Keep in mind that we only allow feasibility checking for this list of trait_questions, currently.</p>
-<pre class="highlight json"><code><span class="w">  </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="err">:id=&gt;1,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your age?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;3,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"Are you using a mobile device?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;4,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"Are you using a mobile device?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;6,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your gender?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;7,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"Are you of Hispanic, Latino, or Spanish origin?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;8,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your race?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;10,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is the highest level of education you have completed?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;73,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your current employment status?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;76,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"Please choose which departments/products you have influence or decision making authority on spending/purchasing?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;83,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"How much total combined income do all members of your household earn before taxes?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;101,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your state?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;102,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your DMA?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;103,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your REGION?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
-    </span><span class="p">{</span><span class="err">:id=&gt;104,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your DIVISION?"</span><span class="err">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span></code></pre>
+
+<blockquote>
+<p>Available Trait Questions for Feasibility
+<code class="prettyprint">json
+  [
+    {&quot;id&quot;:1, &quot;question&quot;:&quot;What is your age?&quot;}, 
+    {&quot;id&quot;:3, &quot;question&quot;:&quot;Are you using a mobile device?&quot;}, 
+    {&quot;id&quot;:4, &quot;question&quot;:&quot;Are you using a mobile device?&quot;}, 
+    {&quot;id&quot;:6, &quot;question&quot;:&quot;What is your gender?&quot;}, 
+    {&quot;id&quot;:7, &quot;question&quot;:&quot;Are you of Hispanic, Latino, or Spanish origin?&quot;}, 
+    {&quot;id&quot;:8, &quot;question&quot;:&quot;What is your race?&quot;}, 
+    {&quot;id&quot;:10, &quot;question&quot;:&quot;What is the highest level of education you have completed?&quot;}, 
+    {&quot;id&quot;:73, &quot;question&quot;:&quot;What is your current employment status?&quot;}, 
+    {&quot;id&quot;:76, &quot;question&quot;:&quot;Please choose which departments/products you have influence or decision making authority on spending/purchasing?&quot;}, 
+    {&quot;id&quot;:83, &quot;question&quot;:&quot;How much total combined income do all members of your household earn before taxes?&quot;}, 
+    {&quot;id&quot;:101, &quot;question&quot;:&quot;What is your state?&quot;}, 
+    {&quot;id&quot;:102, &quot;question&quot;:&quot;What is your DMA?&quot;}, 
+    {&quot;id&quot;:103, &quot;question&quot;:&quot;What is your REGION?&quot;}, 
+    {&quot;id&quot;:104, &quot;question&quot;:&quot;What is your DIVISION?&quot;}
+  ]
+</code></p>
+</blockquote>
 
 <p><strong>HTTP REQUEST</strong></p>
 
