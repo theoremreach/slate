@@ -280,7 +280,7 @@ completes_per_day | integer | Number of completes you can expect per day
 
 # Callbacks
 
-> For a sucessful completion for a respondent with a passed in id of 12345 redirect respondent to:
+> For a successful completion for a respondent with a passed in id of 12345 redirect respondent to:
 
 ```shell
 https://theoremreach.com/respondent_result?status=10&user_id=12345
