@@ -236,22 +236,23 @@ curl -H "Content-Type: application/json" --data "{\"feasibility\":{\"trait_quest
 
 This end point allows you to check the number of completes per day you should receive with a given set of trait questions.  Keep in mind that we only allow feasibility checking for this list of trait_questions, currently.
 
+> Available Trait Questions for Feasibility
 ```json
   [
-    {:id=>1, :question=>"What is your age?"}, 
-    {:id=>3, :question=>"Are you using a mobile device?"}, 
-    {:id=>4, :question=>"Are you using a mobile device?"}, 
-    {:id=>6, :question=>"What is your gender?"}, 
-    {:id=>7, :question=>"Are you of Hispanic, Latino, or Spanish origin?"}, 
-    {:id=>8, :question=>"What is your race?"}, 
-    {:id=>10, :question=>"What is the highest level of education you have completed?"}, 
-    {:id=>73, :question=>"What is your current employment status?"}, 
-    {:id=>76, :question=>"Please choose which departments/products you have influence or decision making authority on spending/purchasing?"}, 
-    {:id=>83, :question=>"How much total combined income do all members of your household earn before taxes?"}, 
-    {:id=>101, :question=>"What is your state?"}, 
-    {:id=>102, :question=>"What is your DMA?"}, 
-    {:id=>103, :question=>"What is your REGION?"}, 
-    {:id=>104, :question=>"What is your DIVISION?"}
+    {"id":1, "question":"What is your age?"}, 
+    {"id":3, "question":"Are you using a mobile device?"}, 
+    {"id":4, "question":"Are you using a mobile device?"}, 
+    {"id":6, "question":"What is your gender?"}, 
+    {"id":7, "question":"Are you of Hispanic, Latino, or Spanish origin?"}, 
+    {"id":8, "question":"What is your race?"}, 
+    {"id":10, "question":"What is the highest level of education you have completed?"}, 
+    {"id":73, "question":"What is your current employment status?"}, 
+    {"id":76, "question":"Please choose which departments/products you have influence or decision making authority on spending/purchasing?"}, 
+    {"id":83, "question":"How much total combined income do all members of your household earn before taxes?"}, 
+    {"id":101, "question":"What is your state?"}, 
+    {"id":102, "question":"What is your DMA?"}, 
+    {"id":103, "question":"What is your REGION?"}, 
+    {"id":104, "question":"What is your DIVISION?"}
   ]
 ```
 
