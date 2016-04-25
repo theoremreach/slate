@@ -62,11 +62,11 @@
 <h1 id="authentication">Authentication</h1>
 
 <p>We use HTTPS combined with an access_key to enforce access controls to secure resources.</p>
-<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/countries?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/countries?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <aside class="notice">
-You must replace <code>testkey</code> with your personal API key. The access_token param must appear in every request.
+You must replace <code>testkey</code> with your personal API key. The api_key param must appear in every request.
 </aside>
 
 <h1 id="integration-guide">Integration Guide</h1>
@@ -96,7 +96,7 @@ You must replace <code>testkey</code> with your personal API key. The access_tok
 <h1 id="countries">Countries</h1>
 
 <h3 id="index-list-available-countries">INDEX - List Available Countries</h3>
-<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/countries?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/countries?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -114,7 +114,7 @@ You must replace <code>testkey</code> with your personal API key. The access_tok
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/countries?access_token=testkey</code></p>
+<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/countries?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -142,7 +142,7 @@ You must replace <code>testkey</code> with your personal API key. The access_tok
 </tbody></table>
 
 <h1 id="trait-questions">Trait Questions</h1>
-<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/countries/9/trait_questions?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/countries/9/trait_questions?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -174,7 +174,7 @@ You must replace <code>testkey</code> with your personal API key. The access_tok
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/countries/:country_id/trait_questions?access_token=testkey</code></p>
+<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/countries/:country_id/trait_questions?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -217,7 +217,7 @@ You must replace <code>testkey</code> with your personal API key. The access_tok
 </tbody></table>
 
 <h1 id="traits">Traits</h1>
-<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/trait_questions/6/traits?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/trait_questions/6/traits?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -241,7 +241,7 @@ You must replace <code>testkey</code> with your personal API key. The access_tok
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/trait_questions/:id/traits?access_token=testkey</code></p>
+<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/trait_questions/:id/traits?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -271,7 +271,7 @@ You must replace <code>testkey</code> with your personal API key. The access_tok
 <h1 id="feasibility">Feasibility</h1>
 
 <h3 id="post-feasibility-for-trait-questions">POST - Feasibility For Trait Questions</h3>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">feasibility</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,10,20,21,22,23,24]}, </span><span class="se">\"</span><span class="s2">country_id</span><span class="se">\"</span><span class="s2">:9,</span><span class="se">\"</span><span class="s2">price</span><span class="se">\"</span><span class="s2">:3.0,</span><span class="se">\"</span><span class="s2">loi</span><span class="se">\"</span><span class="s2">:6,</span><span class="se">\"</span><span class="s2">incidence</span><span class="se">\"</span><span class="s2">:100}}"</span> http://api-staging.theoremreach.com/api/v1/feasibility?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">feasibility</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,10,20,21,22,23,24]}, </span><span class="se">\"</span><span class="s2">country_id</span><span class="se">\"</span><span class="s2">:9,</span><span class="se">\"</span><span class="s2">price</span><span class="se">\"</span><span class="s2">:3.0,</span><span class="se">\"</span><span class="s2">loi</span><span class="se">\"</span><span class="s2">:6,</span><span class="se">\"</span><span class="s2">incidence</span><span class="se">\"</span><span class="s2">:100}}"</span> http://api-staging.theoremreach.com/api/v1/feasibility?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -307,7 +307,7 @@ You must replace <code>testkey</code> with your personal API key. The access_tok
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">POST https://api.theoremreach.com/api/v1/feasibility?access_token=testkey</code></p>
+<p><code class="prettyprint">POST https://api.theoremreach.com/api/v1/feasibility?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -388,7 +388,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 <h1 id="campaigns">Campaigns</h1>
 
 <h2 id="index-list-your-campaigns">Index - List Your Campaigns</h2>
-<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/campaigns?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/campaigns?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -415,7 +415,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/campaigns?access_token=testkey</code></p>
+<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/campaigns?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -488,7 +488,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </tbody></table>
 
 <h2 id="show-show-one-of-your-campaigns">Show - Show One of Your Campaigns</h2>
-<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/campaigns/57472?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/campaigns/57472?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -515,7 +515,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/campaigns/:id?access_token=testkey</code></p>
+<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/campaigns/:id?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -588,7 +588,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </tbody></table>
 
 <h2 id="create-create-a-new-campaign">Create - Create a New Campaign</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">campaign</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">TR Test Campaign via API</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">cpi</span><span class="se">\"</span><span class="s2">:3.0,</span><span class="se">\"</span><span class="s2">loi</span><span class="se">\"</span><span class="s2">:10, </span><span class="se">\"</span><span class="s2">incidence</span><span class="se">\"</span><span class="s2">:90,</span><span class="se">\"</span><span class="s2">survey_url</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">http://clientsurvey.com/survey/12345?id={USER_ID}</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">start_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-04-8T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-04-13T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">country_id</span><span class="se">\"</span><span class="s2">:9}}"</span> http://api-staging.theoremreach.com/api/v1/campaigns?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">campaign</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">TR Test Campaign via API</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">cpi</span><span class="se">\"</span><span class="s2">:3.0,</span><span class="se">\"</span><span class="s2">loi</span><span class="se">\"</span><span class="s2">:10, </span><span class="se">\"</span><span class="s2">incidence</span><span class="se">\"</span><span class="s2">:90,</span><span class="se">\"</span><span class="s2">survey_url</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">http://clientsurvey.com/survey/12345?id={USER_ID}</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">start_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-04-8T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-04-13T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">country_id</span><span class="se">\"</span><span class="s2">:9}}"</span> http://api-staging.theoremreach.com/api/v1/campaigns?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -633,7 +633,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">POST https://api.theoremreach.com/api/v1/campaigns?access_token=testkey</code></p>
+<p><code class="prettyprint">POST https://api.theoremreach.com/api/v1/campaigns?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -769,7 +769,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </tbody></table>
 
 <h2 id="update-update-an-existing-campaign">Update - Update an Existing Campaign</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">campaign</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">New Fun Campaign</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">cpi</span><span class="se">\"</span><span class="s2">:4.0,</span><span class="se">\"</span><span class="s2">loi</span><span class="se">\"</span><span class="s2">:10, </span><span class="se">\"</span><span class="s2">incidence</span><span class="se">\"</span><span class="s2">:100,</span><span class="se">\"</span><span class="s2">survey_url</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">http://clientsurvey.com/survey/12345?id={USER_ID}</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">start_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-04-17T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-06-19T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">country_id</span><span class="se">\"</span><span class="s2">:9}}"</span> http://api-staging.theoremreach.com/api/v1/campaigns/57472?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">campaign</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">New Fun Campaign</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">cpi</span><span class="se">\"</span><span class="s2">:4.0,</span><span class="se">\"</span><span class="s2">loi</span><span class="se">\"</span><span class="s2">:10, </span><span class="se">\"</span><span class="s2">incidence</span><span class="se">\"</span><span class="s2">:100,</span><span class="se">\"</span><span class="s2">survey_url</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">http://clientsurvey.com/survey/12345?id={USER_ID}</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">start_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-04-17T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">end_date</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">2016-06-19T11:22:34.961-05:00</span><span class="se">\"</span><span class="s2">, </span><span class="se">\"</span><span class="s2">country_id</span><span class="se">\"</span><span class="s2">:9}}"</span> http://api-staging.theoremreach.com/api/v1/campaigns/57472?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -818,7 +818,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">PUT https://api.theoremreach.com/api/v1/campaigns/:id?access_token=testkey</code></p>
+<p><code class="prettyprint">PUT https://api.theoremreach.com/api/v1/campaigns/:id?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -969,7 +969,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 <p>In the above example, you will receive 500 respondents for the survey. 250 Males aged 18-24 and 250 Females aged 18-24.</p>
 
 <h2 id="index-all-quotas">Index - All Quotas</h2>
-<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -996,7 +996,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/campaigns/:campaign_id/quotas?access_token=testkey</code></p>
+<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/campaigns/:campaign_id/quotas?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -1049,7 +1049,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </tbody></table>
 
 <h2 id="show-specific-quota">Show - Specific Quota</h2>
-<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/quotas/72057?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -i -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-Type: application/json"</span> -X GET http://api-staging.theoremreach.com/api/v1/quotas/72057?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -1075,7 +1075,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/quotas/:id?access_token=testkey</code></p>
+<p><code class="prettyprint">GET https://api.theoremreach.com/api/v1/quotas/:id?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -1128,7 +1128,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </tbody></table>
 
 <h2 id="create-new-quota">Create - New Quota</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">quota</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Age 18-24</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">total_completes</span><span class="se">\"</span><span class="s2">:100, </span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,19,20,21,22,23,24]}}}"</span> http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">quota</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Age 18-24</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">total_completes</span><span class="se">\"</span><span class="s2">:100, </span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,19,20,21,22,23,24]}}}"</span> http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -1170,7 +1170,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">POST https://api.theoremreach.com/api/v1/campaigns/:campaign_id/quotas?access_token=testkey</code></p>
+<p><code class="prettyprint">POST https://api.theoremreach.com/api/v1/campaigns/:campaign_id/quotas?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
@@ -1250,7 +1250,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </tbody></table>
 
 <h2 id="update-existing-quota">Update - Existing Quota</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">quota</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Age 18-24</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">total_completes</span><span class="se">\"</span><span class="s2">:100, </span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,19,20,21,22,23,24]}}}"</span> http://api-staging.theoremreach.com/api/v1/quotas/72057?access_token<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">quota</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Age 18-24</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">total_completes</span><span class="se">\"</span><span class="s2">:100, </span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,19,20,21,22,23,24]}}}"</span> http://api-staging.theoremreach.com/api/v1/quotas/72057?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -1292,7 +1292,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p><strong>HTTP REQUEST</strong></p>
 
-<p><code class="prettyprint">PUT https://api.theoremreach.com/api/v1/quotas/:id?access_token=testkey</code></p>
+<p><code class="prettyprint">PUT https://api.theoremreach.com/api/v1/quotas/:id?api_key=testkey</code></p>
 
 <p><strong>REQUIRED PARAMETERS</strong></p>
 
