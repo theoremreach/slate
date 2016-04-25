@@ -154,14 +154,16 @@ You must replace <code>testkey</code> with your personal API key. The api_key pa
     </span><span class="nt">"question_text"</span><span class="p">:</span><span class="s2">"What is your age?"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"question_type"</span><span class="p">:</span><span class="s2">"numeric"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trait_question_type"</span><span class="p">:</span><span class="s2">"age"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"country_id"</span><span class="p">:</span><span class="mi">9</span><span class="w">
+    </span><span class="nt">"country_id"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"can_check_feasibility"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
     </span><span class="nt">"question_text"</span><span class="p">:</span><span class="s2">"What is your zip code?"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"question_type"</span><span class="p">:</span><span class="s2">"numeric"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trait_question_type"</span><span class="p">:</span><span class="s2">"zip"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"country_id"</span><span class="p">:</span><span class="mi">9</span><span class="w">
+    </span><span class="nt">"country_id"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"can_check_feasibility"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -213,6 +215,11 @@ You must replace <code>testkey</code> with your personal API key. The api_key pa
 <td>country_id</td>
 <td>integer</td>
 <td>The id of the country the trait question belongs to</td>
+</tr>
+<tr>
+<td>can_check_feasibility</td>
+<td>boolean</td>
+<td>Can this trait question be used in the check feasibility call?</td>
 </tr>
 </tbody></table>
 
@@ -303,7 +310,24 @@ You must replace <code>testkey</code> with your personal API key. The api_key pa
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This end point allows you to check the number of completes per day you should receive with a given set of trait questions.</p>
+<p>This end point allows you to check the number of completes per day you should receive with a given set of trait questions.  Keep in mind that we only allow feasibility checking for this list of trait_questions, currently.</p>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="err">:id=&gt;1,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your age?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;3,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"Are you using a mobile device?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;4,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"Are you using a mobile device?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;6,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your gender?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;7,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"Are you of Hispanic, Latino, or Spanish origin?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;8,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your race?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;10,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is the highest level of education you have completed?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;73,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your current employment status?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;76,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"Please choose which departments/products you have influence or decision making authority on spending/purchasing?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;83,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"How much total combined income do all members of your household earn before taxes?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;101,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your state?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;102,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your DMA?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;103,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your REGION?"</span><span class="err">}</span><span class="p">,</span><span class="w"> 
+    </span><span class="p">{</span><span class="err">:id=&gt;104,</span><span class="w"> </span><span class="err">:question=&gt;</span><span class="nt">"What is your DIVISION?"</span><span class="err">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span></code></pre>
 
 <p><strong>HTTP REQUEST</strong></p>
 
