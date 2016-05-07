@@ -116,7 +116,7 @@ Trait questions allow you to check feasibility and build quotas around a respond
 
 ### INDEX - List Available Trait Questions
 
-This end point allows you to retrieve all active trait questions within a given country.
+This end point allows you to retrieve all active trait questions within a given country. The US TraitQuestions can be found <a href="https://s3.amazonaws.com/theoremreachapi/us-mapping/trait-questions-2016-05-05.xlsb">here</a>.
 
 **HTTP REQUEST**
 
