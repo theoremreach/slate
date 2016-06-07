@@ -87,7 +87,7 @@ You must replace <code>testkey</code> with your personal API key. The api_key pa
 
 <p>Once a quota is filled it will automatically inactivate.  If all the quotas are filled it will automatically change the campaign to &ldquo;Completed&rdquo;.</p>
 
-<p>To change a quota to inactive via the API just the total_completes value to 0.  If you want to open a quota back up and have already filled it, set the total_completes value to a number higher than the remaining_completes count.  If the campaign is Completed you will need to re-enable the campaign. (Set to &ldquo;In Progress&rdquo;)</p>
+<p>To change a quota to inactive via the API just the target_completes value to 0.  If you want to open a quota back up and have already filled it, set the target_completes value to a number higher than the remaining_completes count.  If the campaign is Completed you will need to re-enable the campaign. (Set to &ldquo;In Progress&rdquo;)</p>
 
 <h2 id="launch-the-campaign">Launch the Campaign</h2>
 
@@ -983,7 +983,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 
 <p>Quotas are the access control for your campaigns.  Think of them as both the gate keeper and also the ticket counter when entering a concert.  </p>
 
-<p>TheoremReach has simplified the quota process making it easier to understand and construct.  Essentially you build all your requirements of a quota into a single quota and then set the total_completes you desire for that particular.  Quotas are always cumulative.</p>
+<p>TheoremReach has simplified the quota process making it easier to understand and construct.  Essentially you build all your requirements of a quota into a single quota and then set the target_completes you desire for that particular.  Quotas are always cumulative.</p>
 
 <p><code class="prettyprint">Example:</code></p>
 
@@ -1009,7 +1009,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">72057</span><span class="p">,</span><span class="w">
     </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Age 18-24"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"remaining_completes"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"total_completes"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_completes"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="nt">"total_incompletes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trait_questions"</span><span class="p">:</span><span class="w">
@@ -1055,7 +1055,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 <td>How many completes are yet to be delivered</td>
 </tr>
 <tr>
-<td>total_completes</td>
+<td>target_completes</td>
 <td>integer</td>
 <td>Total number of completes you wish for this quota</td>
 </tr>
@@ -1088,7 +1088,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">72057</span><span class="p">,</span><span class="w">
     </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Age 18-24"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"remaining_completes"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"total_completes"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_completes"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
     </span><span class="nt">"total_incompletes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trait_questions"</span><span class="p">:</span><span class="w">
@@ -1134,7 +1134,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 <td>How many completes are yet to be delivered</td>
 </tr>
 <tr>
-<td>total_completes</td>
+<td>target_completes</td>
 <td>integer</td>
 <td>Total number of completes you wish for this quota</td>
 </tr>
@@ -1156,7 +1156,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </tbody></table>
 
 <h2 id="create-new-quota">Create - New Quota</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">quota</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Age 18-24</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">total_completes</span><span class="se">\"</span><span class="s2">:100, </span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,19,20,21,22,23,24]}}}"</span> http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">quota</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Age 18-24</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">target_completes</span><span class="se">\"</span><span class="s2">:100, </span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,19,20,21,22,23,24]}}}"</span> http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -1166,7 +1166,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
     </span><span class="nt">"quota"</span><span class="p">:</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Age 18-24"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"total_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"target_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
         </span><span class="nt">"trait_questions"</span><span class="p">:</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"1"</span><span class="p">:[</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">]</span><span class="w">
@@ -1183,7 +1183,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">72057</span><span class="p">,</span><span class="w">
     </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Age 18-24"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"remaining_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"total_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nt">"total_incompletes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trait_questions"</span><span class="p">:</span><span class="w">
@@ -1220,7 +1220,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 <td>Name of the quota</td>
 </tr>
 <tr>
-<td>total_completes</td>
+<td>target_completes</td>
 <td>integer</td>
 <td>Total number of completes you wish for this quota</td>
 </tr>
@@ -1256,7 +1256,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 <td>How many completes are yet to be delivered</td>
 </tr>
 <tr>
-<td>total_completes</td>
+<td>target_completes</td>
 <td>integer</td>
 <td>Total number of completes you wish for this quota</td>
 </tr>
@@ -1278,7 +1278,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 </tbody></table>
 
 <h2 id="update-existing-quota">Update - Existing Quota</h2>
-<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">quota</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Age 18-24</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">total_completes</span><span class="se">\"</span><span class="s2">:100, </span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,19,20,21,22,23,24]}}}"</span> http://api-staging.theoremreach.com/api/v1/quotas/72057?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
+<pre class="highlight shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> -X PUT --data <span class="s2">"{</span><span class="se">\"</span><span class="s2">quota</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">title</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Age 18-24</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">target_completes</span><span class="se">\"</span><span class="s2">:100, </span><span class="se">\"</span><span class="s2">trait_questions</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">1</span><span class="se">\"</span><span class="s2">:[18,19,20,21,22,23,24]}}}"</span> http://api-staging.theoremreach.com/api/v1/quotas/72057?api_key<span class="o">=</span>30832a87c5bf731cb234fb0f218c1989
 </code></pre>
 
 <blockquote>
@@ -1288,7 +1288,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
   </span><span class="nt">"quota"</span><span class="p">:</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Age 18-24"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"total_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"target_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
       </span><span class="nt">"trait_questions"</span><span class="p">:</span><span class="w">
         </span><span class="p">{</span><span class="w">
           </span><span class="nt">"1"</span><span class="p">:[</span><span class="mi">18</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">24</span><span class="p">]</span><span class="w">
@@ -1305,7 +1305,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
     </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">72057</span><span class="p">,</span><span class="w">
     </span><span class="nt">"title"</span><span class="p">:</span><span class="s2">"Age 18-24"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"remaining_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"total_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"target_completes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
     </span><span class="nt">"total_incompletes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"state"</span><span class="p">:</span><span class="s2">"active"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"trait_questions"</span><span class="p">:</span><span class="w">
@@ -1346,7 +1346,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 <td>Name of the quota</td>
 </tr>
 <tr>
-<td>total_completes</td>
+<td>target_completes</td>
 <td>integer</td>
 <td>Total number of completes you wish for this quota</td>
 </tr>
@@ -1382,7 +1382,7 @@ https://theoremreach.com/respondent_result?status=4&amp;user_id={USER_ID}</p>
 <td>How many completes are yet to be delivered</td>
 </tr>
 <tr>
-<td>total_completes</td>
+<td>target_completes</td>
 <td>integer</td>
 <td>Total number of completes you wish for this quota</td>
 </tr>
