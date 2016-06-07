@@ -57,7 +57,7 @@ Once the base campaign is created you need to assign your quotas for respondents
 
 Once a quota is filled it will automatically inactivate.  If all the quotas are filled it will automatically change the campaign to "Completed".
 
-To change a quota to inactive via the API just the total_completes value to 0.  If you want to open a quota back up and have already filled it, set the total_completes value to a number higher than the remaining_completes count.  If the campaign is Completed you will need to re-enable the campaign. (Set to "In Progress")
+To change a quota to inactive via the API just the target_completes value to 0.  If you want to open a quota back up and have already filled it, set the target_completes value to a number higher than the remaining_completes count.  If the campaign is Completed you will need to re-enable the campaign. (Set to "In Progress")
 
 ## Launch the Campaign
 
@@ -583,7 +583,7 @@ cpi | decimal | Amount you will pay per complete. This must be a minimum of $1 p
 
 Quotas are the access control for your campaigns.  Think of them as both the gate keeper and also the ticket counter when entering a concert.  
 
-TheoremReach has simplified the quota process making it easier to understand and construct.  Essentially you build all your requirements of a quota into a single quota and then set the total_completes you desire for that particular.  Quotas are always cumulative.
+TheoremReach has simplified the quota process making it easier to understand and construct.  Essentially you build all your requirements of a quota into a single quota and then set the target_completes you desire for that particular.  Quotas are always cumulative.
 
 `Example:`
 
@@ -610,7 +610,7 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
     "id":72057,
     "title":"Age 18-24",
     "remaining_completes":13,
-    "total_completes":15,
+    "target_completes":15,
     "total_incompletes":0,
     "state":"active",
     "trait_questions":
@@ -638,7 +638,7 @@ Parameter | Type | Description
 id | integer | Unique identifier for the quota
 title | string | Name of the quota
 remaining_completes | integer | How many completes are yet to be delivered
-total_completes | integer | Total number of completes you wish for this quota
+target_completes | integer | Total number of completes you wish for this quota
 total_incompletes | integer | Total number of respondents have attempted and failed this quota
 state | string | active or inactive
 trait_questions | hash | Subset hash of trait questions ids and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
@@ -657,7 +657,7 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET
     "id":72057,
     "title":"Age 18-24",
     "remaining_completes":13,
-    "total_completes":15,
+    "target_completes":15,
     "total_incompletes":0,
     "state":"active",
     "trait_questions":
@@ -686,7 +686,7 @@ Parameter | Type | Description
 id | integer | Unique identifier for the quota
 title | string | Name of the quota
 remaining_completes | integer | How many completes are yet to be delivered
-total_completes | integer | Total number of completes you wish for this quota
+target_completes | integer | Total number of completes you wish for this quota
 total_incompletes | integer | Total number of respondents have attempted and failed this quota
 state | string | active or inactive
 trait_questions | hash | Subset hash of trait questions ids and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
@@ -694,7 +694,7 @@ trait_questions | hash | Subset hash of trait questions ids and array of trait i
 ## Create - New Quota
 
 ```shell
-curl -H "Content-Type: application/json" --data "{\"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100, \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?api_key=30832a87c5bf731cb234fb0f218c1989
+curl -H "Content-Type: application/json" --data "{\"quota\":{\"title\":\"Age 18-24\",\"target_completes\":100, \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" http://api-staging.theoremreach.com/api/v1/campaigns/57472/quotas?api_key=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > Example REQUEST JSON (100 respondents aged 18-24):
@@ -704,7 +704,7 @@ curl -H "Content-Type: application/json" --data "{\"quota\":{\"title\":\"Age 18-
     "quota":
       {
         "title":"Age 18-24",
-        "total_completes":100,
+        "target_completes":100,
         "trait_questions":
         {
           "1":[18,19,20,21,22,23,24]
@@ -721,7 +721,7 @@ curl -H "Content-Type: application/json" --data "{\"quota\":{\"title\":\"Age 18-
     "id":72057,
     "title":"Age 18-24",
     "remaining_completes":100,
-    "total_completes":100,
+    "target_completes":100,
     "total_incompletes":0,
     "state":"active",
     "trait_questions":
@@ -745,7 +745,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 id | integer | Unique identifier for the quota
 title | string | Name of the quota
-total_completes | integer | Total number of completes you wish for this quota
+target_completes | integer | Total number of completes you wish for this quota
 trait_questions | hash | Subset hash of trait questions ids and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 
 **RESPONSE**
@@ -755,7 +755,7 @@ Parameter | Type | Description
 id | integer | Unique identifier for the quota
 title | string | Name of the quota
 remaining_completes | integer | How many completes are yet to be delivered
-total_completes | integer | Total number of completes you wish for this quota
+target_completes | integer | Total number of completes you wish for this quota
 total_incompletes | integer | Total number of respondents have attempted and failed this quota
 state | string | active or inactive
 trait_questions | hash | Subset hash of trait questions ids and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
@@ -763,7 +763,7 @@ trait_questions | hash | Subset hash of trait questions ids and array of trait i
 ## Update - Existing Quota
 
 ```shell
-curl -H "Content-Type: application/json" -X PUT --data "{\"quota\":{\"title\":\"Age 18-24\",\"total_completes\":100, \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" http://api-staging.theoremreach.com/api/v1/quotas/72057?api_key=30832a87c5bf731cb234fb0f218c1989
+curl -H "Content-Type: application/json" -X PUT --data "{\"quota\":{\"title\":\"Age 18-24\",\"target_completes\":100, \"trait_questions\":{\"1\":[18,19,20,21,22,23,24]}}}" http://api-staging.theoremreach.com/api/v1/quotas/72057?api_key=30832a87c5bf731cb234fb0f218c1989
 ```
 
 > Example REQUEST JSON:
@@ -773,7 +773,7 @@ curl -H "Content-Type: application/json" -X PUT --data "{\"quota\":{\"title\":\"
   "quota":
     {
       "title":"Age 18-24",
-      "total_completes":100,
+      "target_completes":100,
       "trait_questions":
         {
           "1":[18,19,20,21,22,23,24]
@@ -790,7 +790,7 @@ curl -H "Content-Type: application/json" -X PUT --data "{\"quota\":{\"title\":\"
     "id":72057,
     "title":"Age 18-24",
     "remaining_completes":100,
-    "total_completes":100,
+    "target_completes":100,
     "total_incompletes":0,
     "state":"active",
     "trait_questions":
@@ -818,7 +818,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 id | integer | Unique identifier for the quota
 title | string | Name of the quota
-total_completes | integer | Total number of completes you wish for this quota
+target_completes | integer | Total number of completes you wish for this quota
 trait_questions | hash | Subset hash of trait questions ids and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
 
 **RESPONSE**
@@ -828,7 +828,7 @@ Parameter | Type | Description
 id | integer | Unique identifier for the quota
 title | string | Name of the quota
 remaining_completes | integer | How many completes are yet to be delivered
-total_completes | integer | Total number of completes you wish for this quota
+target_completes | integer | Total number of completes you wish for this quota
 total_incompletes | integer | Total number of respondents have attempted and failed this quota
 state | string | active or inactive
 trait_questions | hash | Subset hash of trait questions ids and array of trait ids (e.g. values which make up this quota). For example, for 18-24 year old males this value would be {"1":[18,19,20,21,22,23,24],"6":[42199]}.
